@@ -1,0 +1,170 @@
+@charset "euc-kr";
+
+fieldset {border:0;}
+
+/* skip 숨김영역 */
+.skip, hr, fieldset legend  {
+  position:absolute;
+  width:0;
+  height:0;
+  font:0 Arial;
+  overflow:hidden;
+  left:-999em;
+}
+
+
+#warning_script{height:27px;line-height:2.5em;text-align:center;background:#FDFCC6;font-size:12px;border-bottom:#ccc solid 1px;}
+
+body.line #header {position:relative; width:100%; height:141px; margin:0 auto; border-bottom:1px solid #dedede; background:url(/images/menu/sub_menubg.gif) repeat-x;}
+body.line2 #header {position:relative; width:100%; height:141px; margin:0 auto; border-bottom:1px solid #dedede; background:url(/images/menu/sub_menubg1.gif) repeat-x;}
+#wrapper{padding:0px; margin:0 auto;width:100%;}
+
+/* 새창 에러 페이지 입니다 */
+.error_page {position:relative; z-index:100; width:784px;margin:0 auto;padding-top:200px;min-height:500px;}
+
+html{overflow:auto;} /*ie7에서 스크롤 자동 생성 혹은 없애기 */
+
+/* 팝업레이아웃  */
+#pop_wrapper {position:relative;padding:0px; margin:0 auto;width:800px;}
+#pop_header{margin:0 auto;padding:0px; height:47px; background:url(/images/pop/pop_tbg.gif) repeat-x;}
+#pop_content {margin:0 auto;padding:10px 0px 50px 20px;}
+#pop_footer{margin:0 auto;padding-top:0px; height:25px; background-color:#3c92c9;}
+
+
+
+/* 메인 메뉴 공통  */
+#header{position:relative; z-index:100; width:100%;margin:0 auto;padding:0px;height:92px;}
+#header .header_con{position:relative;width:995px;margin:0 auto;padding:10px 0px 0px 0px;}
+#header .logoImg{float:left; padding:22px 0px 0 0px;width:202px;border:0px solid #ccc;}
+#header .logoImg .login_info{position:absolute; top:40px; left:230px; width:350px;}
+
+
+#header .contentmenu{float:right;padding:0px 0px 0px 0px; width:600px;}
+#header .contentmenu .contmenu {float:right; padding:10px 0px 0px 0px; height:18px;}
+#header .contentmenu .contmenu li{margin:0px;padding-left:20px;font-size:0;}
+
+#header .sta{width:417px; float:right; margin:0 auto;text-align:right;}
+.login{position:absolute; top:26px; right:112px; background:url(/images/menu/login_bg.gif) no-repeat; height:30px; width:120px;}
+.login ul{padding:10px 0 0 3px; margin:0px;}
+#header .mainmenu{float:left;padding:0px 0px 0px 0px; width:995px;}
+
+#header .mainmenu .menu {float:left; padding:12px 0px 0px 0px; height:38px;}
+#header .mainmenu .menu li{margin:0px;padding-left:00px;font-size:0;}
+#header .mainmenu .menu li ul{margin:0px;padding:0px;font-size:0;}
+
+#header .mainmenu .menu #sub1{position:absolute; left:30px;top:103px;width:500px;}
+#header .mainmenu .menu #sub1 ul{margin:0;padding:0;width:500px;}
+#header .mainmenu .menu #sub1 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sub2{position:absolute; left:225px;top:103px;width:430px;}
+#header .mainmenu .menu #sub2 ul{margin:0;padding:0;width:430px;}
+#header .mainmenu .menu #sub2 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sub3{position:absolute; left:415px;top:103px;width:500px;}
+#header .mainMenu .menu #sub3 ul{margin:0;padding:0;width:500px;}
+#header .mainmenu .menu #sub3 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sub4{position:absolute; left:605px;top:103px;width:536px;}
+#header .mainmenu .menu #sub4 ul{margin:0px;padding:0px;width:536px;}
+#header .mainmenu .menu #sub4 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sub5{position:absolute; left:700px;top:103px;width:600px;}
+#header .mainmenu .menu #sub5 ul{margin:0px;padding:0px;width:600px;}
+#header .mainmenu .menu #sub5 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+
+#header .mainmenu .menu #sys_sub1{position:absolute; left:20px;top:103px;width:1000px;}
+#header .mainmenu .menu #sys_sub1 ul{margin:0;padding:0;width:1000px;}
+#header .mainmenu .menu #sys_sub1 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sys_sub2{position:absolute; left:180px;top:103px;width:400px;}
+#header .mainmenu .menu #sys_sub2 ul{margin:0;padding:0;width:400px;}
+#header .mainmenu .menu #sys_sub2 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sys_sub3{position:absolute; left:340px;top:103px;width:1000px;}
+#header .mainMenu .menu #sys_sub3 ul{margin:0;padding:0;width:1000px;}
+#header .mainmenu .menu #sys_sub3 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sys_sub4{position:absolute; left:495px;top:103px;width:536px;}
+#header .mainmenu .menu #sys_sub4 ul{margin:0px;padding:0px;width:536px;}
+#header .mainmenu .menu #sys_sub4 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sys_sub5{position:absolute; left:620px;top:103px;width:300px;}
+#header .mainmenu .menu #sys_sub5 ul{margin:0px;padding:0px;width:300px;}
+#header .mainmenu .menu #sys_sub5 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+#header .mainmenu .menu #sys_sub6{position:absolute; left:820px;top:103px;width:300px;}
+#header .mainmenu .menu #sys_sub6 ul{margin:0px;padding:0px;width:300px;}
+#header .mainmenu .menu #sys_sub6 ul li{margin:0; padding-left:17px; padding-top:17px; font-size:0;float:left;}
+
+/* 메인 서브 공통  */
+#contaniner{position:relative; width:995px; margin:0 auto; padding:0px 0px 0px 0px;}
+#contaniner .topbox{position:relative; padding:60px 0px 0px; width:998px; height:382px;}
+#contaniner .topbox .left{float:left; padding:0px; margin:0px; width:356px; height:382px;}
+#contaniner .topbox .right{float:left; padding:0px; margin:0px; width:638px; height:382px;}
+
+
+/** 서브단 레프트메뉴 메인 이미지 **/
+#contaniner .spot{width:995px; margin:0px auto; padding:0 0 0 0px;}
+#contaniner .snb{float:left; width:190px; margin:0px; padding:20px 0 0 0px;}
+#contaniner .snb .bg{background:url('/images/pefo/subm_bg1.gif') repeat-y; width:190px;}
+#contaniner .snb .bg .sub{padding:10px 10px 20px 15px;}
+#contaniner .snb .bg .sub .sub_bg {padding:0px;margin:0px;width:190px;}
+#contaniner .snb .bg .sub .sub_bg .navbox {padding:15px 0px 5px 0px;}
+#contaniner .snb .bg .sub .sub_bg ul {padding:0px; margin:0px; width:175px;}
+#contaniner .snb .bg .sub .sub_bg ul li {display:block; line-height:20px;}
+.sub_line{background:url('/images/pefo/sub_line.gif') repeat-x; width:160px; height:1px;}
+
+/** 서브단 컨텐츠 서브로케이션**/
+#content {float:left; width:704px; margin:0px; padding:30px 0px 60px 30px;}
+#content_01 {float:left; width:704px; margin:0px; padding:40px 0px 40px 12px;}
+#content_cti {float:left; width:480px; margin:0px; padding:15px 0px 15px 12px;}
+#content_cti01 {width:980px; margin:0px; padding:15px 0px 0px 12px;}
+
+
+
+#content .pagenav {width:704px; height:28px; border-bottom:1px solid #e5e5e5; margin:0px;}
+#content .title {float:left; padding:0px; font-size:18px; color:#555555; width:300px; font-weight:bold;}
+#content .nav {float:right; padding-top:10px;}
+#content .nav ul li {padding:0px; font-size:11px; color:#888; vertical-align:middle;}
+#content .nav ul li .location {padding:0px; font-size:11px; color:#555; vertical-align:middle;}
+.new_login{margin:0px; text-align:center; height:570px;}
+
+
+/** 메인 카피라이터**/
+#footer {height:140px; border-top:1px solid #dddddd; width:100%;}
+#footer .footercon {margin:0px auto; border-bottom:1px solid #dddddd; width:100%;}
+.etc {width:995px; margin:0px auto;}
+.etc ul{padding:10px 10px 10px 166px;}
+.copyright {width:995px; margin:0px auto;}
+.add{padding:15px 0px 0px 0px;}
+.sitelink {font-size:12px; font-family:Dotum,Verdana;color:#666; width:195px;}
+
+
+
+/** 퀵메뉴 **/
+#gotop {position:absolute; top:185px; left:50%; margin-left:450px}
+#gotop .quick_box {width:69px; border-left:1px solid #ddd; border-right:1px solid #ddd; padding-bottom:10px;}
+#gotop .quick_box p {padding:10px 0 0 7px;}
+#gotop .quick_box .quick_bt {padding:3px 0 5px 0;}
+#gotop .quick_box .quick_bt li{clear:both; display:block; padding:5px 0 0 7px;}
+
+
+/** 전체메뉴**/
+.allmenu {position:absolute; z-index:200; top:72px; left:5px; background:#fff; border:0px solid #457cb6; width:990px; padding-bottom:0px;}
+.allmenu .title{background:#457cb6; height:28px; padding:8px 0 0 20px;}
+.allmenu .title .close{padding:2px 15px 0 770px;}
+.allmenu .menu_box {clear:both; padding:20px 0 0 10px; border:2px solid #457cb6; min-height:530px;} 
+.allmenu .menu_box .menu_bg li{display:inline-block; padding-left:15px; vertical-align:top;}
+.allmenu .menu_box .menu_bg .line{float:left; background: url('/images/common/allmenu_line.gif') repeat-y 0px 0px;  padding-left:15px; height:495px;}
+.allmenu .menu_box .menu_bg .noline{float:left;padding-left:5px; height:490px;}
+
+.allmenu .menu_box .menu_bg .menu_list{clear:both;}
+.allmenu .menu_box .menu_bg .menu_list li{display:block; padding-top:5px; width:147px; padding-left:10px; padding-right:23px; font-weight:normal;}
+.allmenu .menu_box .menu_bg .menu_list .menu_1dep{display:block; padding-top:0px; color:#0058aa; font-weight:bold; font-size:14px;}
+
+.allmenu .menu_box .menu_bg .menu_list .sub_menu {padding-top:10px;}
+.allmenu .menu_box .menu_bg .menu_list .sub_menu li {display:block; background:url('/images/common/bu19.gif') no-repeat 3px 9px; padding-left:9px;}
+.allmenu .menu_box .menu_bg .menu_list .sub_menu .menu_2dep{font-weight:bold; background: url('/images/common/bu18.gif') no-repeat 0px 9px; padding-left:8px;}
+.allmenu .menu_box .menu_bg .menu_list .sub_menu01 {padding-top:10px;}
+.allmenu .menu_box .menu_bg .menu_list .sub_menu01 li{font-weight:bold; background: url('/images/common/bu18.gif') no-repeat 0px 9px; padding:5px 0 5px 8px;}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid backgroundColor="0xEEEEEE">
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<PercentFormatter id="percfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true"
+		horizontalGridLineColor="0xCCCCCC" textAlign="right" verticalAlign="middle">
+		<columns>
+<!--
+showDataTips 열의 셀에 대한 데이타팁(툴팁) 표시여부 (false,true중 택일, 기본 false)
+dataTipJsFunction 자바스크립트를 이용한 데이타팁(툴팁) 변경기능 (자바스크립트에서 선언한 함수명을 넣어줍니다)
+-->
+			<DataGridColumn id="dg1col1" dataField="Year" textAlign="center" width="80"/>
+			<DataGridColumn id="dg1col2" dataField="Quarter" textAlign="center" width="120"/>
+			<DataGridColumn id="dg1col3" dataField="Month" textAlign="center"/>
+			<DataGridColumn id="dg1col4" dataField="Seoul" formatter="{numfmt}" showDataTips="true" dataTipJsFunction="dataTip"/>
+			<DataGridColumn id="dg1col5" dataField="Pusan" formatter="{numfmt}" showDataTips="true"/>
+			<DataGridColumn id="dg1col6" dataField="Incheon" formatter="{numfmt}" showDataTips="true" dataTipJsFunction="dataTip2"/>
+			<DataGridColumn id="dg1col7" dataField="NewYork" headerText="New York"/>
+			<DataGridColumn id="dg1col8" dataField="LA" headerText="L.A." visible="false"/>
+			<DataGridColumn id="dg1col9" dataField="Washington"/>
+			<DataGridColumn id="dg1col10" dataField="Revenue" sortable="false"/>
+			<DataGridColumn id="dg1col11" dataField="Percent" formatter="{percfmt}"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

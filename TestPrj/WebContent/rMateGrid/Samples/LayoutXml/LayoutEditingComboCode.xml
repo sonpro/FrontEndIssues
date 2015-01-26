@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+<!--
+컨텍스트 메뉴를 만들어 그리드에서 오른쪽 마우스를 눌렀을때 사용가능한 기능을 표시할 수 있습니다.
+사용자가 선택한 메뉴는 자바스크립트에서 함수의 파라메터로 전달받아 필요한 작업을 수행할 수 있습니다
+-->
+	<ContextMenu id="cMenu">
+		<ContextMenuItem caption="Insert Row"/>
+		<ContextMenuItem caption="Delete Row"/>
+	</ContextMenu>
+<!--
+editable 수정모드 지정 (true,false중 택일, 기본 false)
+doubleClickEnabled 더블클릭 가능 여부 (true,false중 택일, 기본 false, true의 경우 더블클릭하면 해당 셀을 수정할수 있게 됩니다)
+-->
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" editable="true" doubleClickEnabled="true" contextMenu="{cMenu}" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows">
+		<columns>
+			<DataGridColumn dataField="Selected" editable="false"/>
+			<DataGridColumn dataField="From" width="80" editable="false"/>
+<!--
+itemRenderer 를 "DataProviderItem"로 설정하여 itemRendererDataProvider나 itemRendererDataProviderField에서 셀에 표시할 필드를 찾도록 하고
+itemEditor 를 "ComboBoxEditor"로 설정하여 에디팅시 itemRendererDataProvider나 itemRendererDataProviderField에서 ComboBox의 선택내용을 가져오도록 합니다.
+
+editorDataField ComboBoxEditor에서 수정후 결과값을 가져올 속성(변경불가)
+itemRendererDataField itemRendererDataProvider나 itemRendererDataProviderField에서 코드를 나타내는 필드명
+itemRendererLabelField itemRendererDataProvider나 itemRendererDataProviderField에서 라벨을 나타내는 필드명 (기본 "label") 
+-->
+			<DataGridColumn dataField="Subject" width="150" itemEditor="ComboBoxEditor" editorDataField="selectedDataField" itemRendererDataField="code" itemRenderer="DataProviderItem"
+				itemRendererDataProvider="[
+					{'label':'GMC-1 R1','code':'GMC-1 Release1'},
+					{'label':'GMC-1 R2','code':'GMC-1 Release2'},
+					{'label':'GMC-1 R3','code':'GMC-1 Release3'},
+					{'label':'GMC-1 R4','code':'GMC-1 Release4'},
+					{'label':'GMC-1 R5','code':'GMC-1 Release5'},
+					{'label':'GMC-1 R6','code':'GMC-1 Release6'}
+				]"/>
+			<DataGridColumn dataField="ReceiveDate" editable="false"/>
+			<DataGridColumn dataField="CC" editable="false"/>
+			<DataGridColumn dataField="Length" textAlign="right" formatter="{numfmt}" editable="false"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right" formatter="{numfmt}" editable="false"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

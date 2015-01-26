@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+<!--
+draggableColumns 컬럼 이동가능여부 조정 (true,false중 택일, 기본 false)
+headerHeight 헤더의 높이 조정 (단위:pixel)
+horizontalScrollPolicy 좌우 스크롤 표시 조정 (auto,on,off중 택일, 기본 off)
+rowHeight 행의 높이 조정(단위:pixel)
+selectionMode 그리드의 선택모드 설정 (multipleCells, multipleRows, none, singleCell, singleRow중 택일, 기본 singleRow)
+showHeaders 헤더 표시여부 조정 (true,false중 택일)
+sortableColumns 컬럼 정렬가능여부 조정 (true,false중 택일, 기본 false)
+verticalScrollPolicy 상하 스크롤 표시 조정 (auto,on,off중 택일, 기본 auto)
+variableRowHeight 행 높이 자동 조정 여부 (true일 경우 rowHeight로 설정된 값은 무효화 됩니다)
+
+columnWidth 컬럼 기본 폭 지정 (단위:pixel)
+doubleClickEnabled 더블클릭 가능 여부 (true,false중 택일, 기본 false, true의 경우 더블클릭하면 해당 셀을 수정할수 있게 됩니다)
+editable 수정모드 지정 (true,false중 택일, 기본 false)
+enabled 전체 잠금 여부 (true,false중 택일, 기본 true)
+groupRowHeight 그룹된 행의 높이 조정 (단위:pixel, 기본 -1)
+headerWordWrap 헤더 꺾임 가능여부 조정 (true,false중 택일, 기본 false)
+liveScrolling 스크롤 이동시 데이타도 같이 움직여 보여줄지 여부, false일 경우 마우스를 띄어야 해당 행의 데이타가 나타남 (true,false중 택일, 기본 true)
+lockedRowCount 틀고정 행 설정 (0이면 해제)
+lockedColumnCount 틀고정 열 설정 (0이면 해제)
+minColumnWidth 컬럼 기본 최소  폭 지정 (단위:pixel)
+showScrollTips 스크롤 이동시 툴팁(행번포를 표시)을 보여줄지 여부 (true,false중 택일, 기본 false)
+sortExpertMode 숙련 정렬 아이콘 표시 여부 조정 (true,false중 택일, 기본 true)
+wordWrap 기본 셀 꺾임 가능여부 조정 (true,false중 택일, 기본 false)
+-->
+	<DataGrid id="dg1" sortableColumns="true" headerHeight="50" rowHeight="30" draggableColumns="true"
+		showHeaders="true" horizontalScrollPolicy="auto" variableRowHeight="false" selectionMode="singleRow">
+		<columns>
+			<DataGridColumn id="dg1col1" dataField="Year"/>
+			<DataGridColumn id="dg1col2" dataField="Quarter"/>
+			<DataGridColumn id="dg1col3" dataField="Month"/>
+			<DataGridColumn id="dg1col4" dataField="Seoul"/>
+			<DataGridColumn id="dg1col5" dataField="Pusan"/>
+			<DataGridColumn id="dg1col6" dataField="Incheon"/>
+			<DataGridColumn id="dg1col7" dataField="NewYork"/>
+			<DataGridColumn id="dg1col8" dataField="LA"/>
+			<DataGridColumn id="dg1col9" dataField="Washington"/>
+			<DataGridColumn id="dg1col10" dataField="Revenue"/>
+			<DataGridColumn id="dg1col11" dataField="Percent"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

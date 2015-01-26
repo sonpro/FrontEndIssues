@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<DataGrid id="dg1" selectionMode="singleRow">
+		<columns>
+			<DataGridColumn dataField="Region"/>
+			<DataGridColumn dataField="Territory" width="150"/>
+			<DataGridColumn dataField="Territory_Rep" headerText="Territory Rep" width="150"/>
+			<DataGridColumn dataField="Actual"/>
+			<DataGridColumn dataField="Estimate"/>
+			<DataGridColumn dataField="Real"/>
+			<DataGridColumn dataField="Price"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

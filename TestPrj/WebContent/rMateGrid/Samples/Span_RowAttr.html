@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javaScript" src="./JS/AC_OETags.js"></script>
+<script type="text/javaScript" src="./JS/rMateGrid.js"></script>
+<script type="text/javaScript" src="./JS/rMateGridLicense.js"></script>
+<style>
+body { margin: 0px; font-family: "굴림", "굴림체"; }
+</style>
+
+<!-- 사용자 정의 설정 시작 -->
+<script type="text/javascript">
+
+// ----------------------- rMateGrid flashVars 설정 시작 -----------------------
+
+// rMateGrid 레이아웃 URL 경로. 반드시 설정하십시오.
+var layoutURL = encodeURIComponent("./LayoutXml/LayoutSpanData.xml");
+var flashVars = "layoutURL="+layoutURL;
+
+// 데이타를 URL 경로를 통해 가져올 경우 설정하십시오.
+// 배열형태로 데이터를 삽입할 경우 주석처리나 삭제하십시오.
+// 배열형태와 같이 사용할 경우, 우선순위는 배열형태 데이터 삽입입니다.
+var dataURL = encodeURIComponent("./DataXml/DataOneDepthRevenues.xml");
+flashVars += "&dataURL="+dataURL;
+
+// 데이타가 JSON형일 경우 넣어줍니다. (설정을 안할경우 xml로 인식하여 오류가 발생합니다)
+//flashVars += "&dataType=json";
+
+// ----------------------- rMateGrid flashVars 설정 끝 -----------------------
+
+// rMateGrid 관련 객체
+var gridApp;	// 플래시 기본 객체
+var gridRoot;	// 데이타와 그리드를 포함하는 객체
+
+// rMateGrid가 로딩된 후 불려지는 함수
+var rMateGridOnLoad = function() {
+	gridApp = FABridge.gridBridge.root();
+	gridRoot = gridApp.getGridRoot();
+
+	var dataCompletedHandler = function(event) {
+		setRowSpanAttributes();
+	}
+
+	gridRoot.addEventListener("dataComplete", dataCompletedHandler);
+}
+
+// rMateGrid가 로딩된 후 불려질 함수를 설정합니다.
+FABridge.addInitializationCallback("gridBridge", rMateGridOnLoad);
+
+var collection;	// 그리드의 데이타 객체
+
+// 데이타가 로딩된후 불려져 data가 저장된 collection에 행 속성을 세팅합니다.
+// addRowAttributeDetailAt 함수의 파라메터는 다음과 같습니다.
+// function addRowAttributeDetailAt(rowNo:int, styleName:String, backgroundColor:Number, formatString:String, editable:Boolean, rowHeight:Number)
+// 		rowNo : 행의 index 번호
+// 		styleName : 적용할 style명 (layout에서 정의한 스타일명('.'은 제외한 부분)
+// 		backgroundColor : 배경색 (RGB값으로 적용)
+// 		formatString : 행에 적용할 formatString (매뉴얼 참조)
+// 		editable : 행의 수정가능여부 (true/false)
+// 		rowHeight : 행의 높이 (단위:pixel)
+//
+function setRowSpanAttributes() {
+	if (collection == null)
+		collection = gridRoot.getCollection();
+	if (collection == null) {
+		alert("collection 객체를 찾을 수 없습니다");
+		return;
+	}
+	collection.addRowAttributeDetailAt(0, "allTotalHeaderStyle");		// 행 스타일(스타일명을 적어줌) 지정 - 스타일은 layout에서 지정합니다
+	collection.addRowAttributeDetailAt(1, null, 0xFFCC00);					// 행 배경색
+	collection.addRowAttributeDetailAt(2, null, 0xFFFFFF, "#,##0원");			// 행에 포맷 지정
+	collection.addRowAttributeDetailAt(3, null, 0xFFFFFF, null, false);		// 행의 수정가능 여부 지정
+	collection.addRowAttributeDetailAt(4, null, 0xFFFFFF, null, true, 40);	// 행의 높이 지정
+}
+
+function setRowAttr() {
+	if (collection == null)
+		collection = gridRoot.getCollection();
+	collection.addRowAttributeDetailAt(5, "allTotalHeaderStyle", 0xFFCC00, "#,##0원", false, 40);
+}
+
+function clearRowAttr() {
+	if (collection == null)
+		collection = gridRoot.getCollection();
+	collection.removeRowAttributeAt(5);
+}
+
+</script>
+<!-- 사용자 정의 설정 끝  -->
+</head>
+
+<body onLoad="rMateGridInit()">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+	<tr height="80">
+		<td width="7%"></td>
+		<td align="center" valign="middle">
+			<br>
+			<b>행별 속성 지정(스타일, 배경색, 잠금, 포맷, 높이)</b>
+		</td>
+		<td width="7%"></td>
+	</tr>
+	<tr height="50">
+		<td></td>
+		<td align="right">
+			<form id="inputForm" name="inputForm">
+				<input type="button" value="행 속성 추가" onClick="setRowAttr()"/>
+				<input type="button" value="행 속성 삭제" onClick="clearRowAttr()"/>
+			</form>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+					<td>
+						<script type="text/javascript">
+						<!--
+							rMateGridCreate("grid1", "../Component/rMateGridWeb", flashVars, "100%", "100%", "#FFFFFF");
+						// -->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center" valign="middle">
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(layoutURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewLayout.png" width="100" height="22" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(dataURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewData.png" width="100" height="22" border="0"/></a>
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+</body>
+</html>

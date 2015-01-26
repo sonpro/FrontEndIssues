@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<title>RCMS PT library project</title>
+<script type="text/javascript" src="lib/TermsOfUse.rcms.keit.0.0.1.js"></script>
+<script type="text/javascript" src="lib/FuncTermsOfUse.js"></script>
+<script type="text/javascript" src="lib/jquery-1.5.2.js"></script>
+<script type="text/javascript" src="lib/json2.js"></script>
+<script language="javascript" >
+
+function uf_test(dv){
+	
+	if("TEST01"==dv){
+		if(!RcmsPTManager.chkFormValues('frm','AE001')) return;	
+	}else if("TEST02"==dv){
+		if(!RcmsPTManager.chkFormValues('frm','AE002|FB001')) return;
+	}
+	alert("Terminated");
+}
+</script>
+</head>
+<body>
+<form name="frm">
+	<table>
+		<tr>
+			<td>
+				공급금액	
+			</td>
+			<td>
+				<input type="text" id="splyamt" name="splyamt" style="text-align:right" value="" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				부가세액	
+			</td>
+			<td>
+				<input type="text" id="vatamt" name="vatamt" style="text-align:right"  value="" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				거래사유	
+			</td>
+			<td>
+				<input type="text" id="trnsRsn" name="trnsRsn" style="text-align:left"  value="" />
+			</td>
+		</tr>
+		<tr >
+			<td colspan="2" style="height:30px;border:1px;"></td>
+		</tr>
+	</table>
+	<table  border="1" style="border-collapse:collapse; border:1px gray solid;"  cellpadding="5" cellspacing="0" >
+		<tr>
+			<td>
+				<input type="button" id="btn" name="btn" value="TEST01" onclick="uf_test('TEST01');"/>
+			</td>
+			<td>
+				1.공급금액,부가세액 필수값
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" id="btn" name="btn" value="TEST02" onclick="uf_test('TEST02');"/>
+			</td>
+			<td>
+				1.공급금액,부가세액,거래사유 필수값 <br>
+				2.부가세는 0이여야 함<br>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- test -->
+</form>
+</body>
+</html>

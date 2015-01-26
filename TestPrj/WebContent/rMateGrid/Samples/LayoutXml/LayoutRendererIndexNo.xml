@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<DataGrid id="dg1" selectionMode="singleRow">
+		<columns>
+      <!-- itemRenderer 를 "IndexNoItem"로 설정합니다. -->
+			<DataGridColumn dataField="No" itemRenderer="IndexNoItem" textAlign="center" width="70"/>
+			<DataGridColumn dataField="Region"/>
+			<DataGridColumn dataField="Territory" width="150"/>
+			<DataGridColumn dataField="Territory_Rep" headerText="Territory Rep" width="150"/>
+			<DataGridColumn dataField="Actual"/>
+			<DataGridColumn dataField="Estimate"/>
+			<DataGridColumn dataField="Real"/>
+			<DataGridColumn dataField="Price"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

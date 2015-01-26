@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid backgroundColor="0xEEEEEE">
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<PercentFormatter id="percfmt" useThousandsSeparator="true"/>
+	<CurrencyFormatter id="currencyfmt" useThousandsSeparator="true" currencySymbol="원" alignSymbol="right"/>
+<!--
+sortableColumns 컬럼 정렬가능여부 조정 (true,false중 택일, 기본 false)
+sortExpertMode 숙련 정렬 아이콘 표시 여부 조정 (true,false중 택일, 기본 true)
+-->
+	<DataGrid id="dg1" sortableColumns="true" sortExpertMode="false" horizontalScrollPolicy="auto" horizontalGridLines="true"
+		horizontalGridLineColor="0xCCCCCC" textAlign="right" verticalAlign="middle">
+		<columns>
+<!--
+sortable 정렬기능가능 여부 (true,false중 택일, 기본 true, 위의 DataGrid에서 sortableColumns가 true일때 동작)
+sortCompareFunction 정렬에 사용할 비교함수 - 내장함수만 사용가능하며, 현재 numericSort만 지원됩니다.
+-->
+			<DataGridColumn id="dg1col1" dataField="Year" textAlign="center" width="80"/>
+			<DataGridColumn id="dg1col2" dataField="Quarter" textAlign="center" width="120"/>
+			<DataGridColumn id="dg1col3" dataField="Month" textAlign="center" sortable="false"/>
+			<DataGridColumn id="dg1col4" dataField="Seoul" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col5" dataField="Pusan" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col6" dataField="Incheon" formatter="{currencyfmt}"/>
+			<DataGridColumn id="dg1col7" dataField="NewYork" headerText="New York"/>
+			<DataGridColumn id="dg1col8" dataField="LA" headerText="L.A." visible="false"/>
+			<DataGridColumn id="dg1col9" dataField="Washington"/>
+			<DataGridColumn id="dg1col10" dataField="Revenue" sortable="false"/>
+			<DataGridColumn id="dg1col11" dataField="Percent" formatter="{percfmt}"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

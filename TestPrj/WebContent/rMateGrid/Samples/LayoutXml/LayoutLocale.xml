@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle">
+		<columns>
+			<DataGridColumn dataField="language" width="100" headerText="언어"/>
+			<DataGridColumn dataField="code" width="180" headerText="코드"/>
+			<DataGridColumn dataField="text" headerText="메세지"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

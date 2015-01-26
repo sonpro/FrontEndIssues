@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid backgroundColor="0xEEEEEE">
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<PercentFormatter id="percfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" variableRowHeight="true">
+		<columns>
+<!--
+color 폰트색 지정
+backgroundColor 배경색 지정
+headerStyleName 헤더의 스타일명 지정
+textAlign 수평정렬 지정 (left,right,center중 택일, 기본 left)
+fontWeight 폰트 bold 지정 (bold,normal중 택일, 기본 normal)
+textDecoration 폰트 underline 지정 (underline,none중 택일, 기본 none)
+fontStyle 폰트 italic 지정 (italic,normal중 택일, 기본 normal)
+fontSize 폰트크기 지정
+fontFamily 폰트 지정
+iconPlacement itemRenderer 를 "IconItem"로 설정할 경우 icon의 위치 정렬 지정 (left,right중 택일, 기본 left)
+
+== 헤더 스타일 ==
+horizontalAlign 헤더의 수평정렬 지정 (left,right,center중 택일, 기본 center)
+verticalAlign 헤더의 수직 정렬 (top,middle,bottom중 택일, 기본 middle)
+separatorColor 정렬 아이콘 표현시 텍스트와 정렬 아이콘 사이 줄의 색상 (기본 0xCCCCCC)
+-->
+			<DataGridColumn id="dg1col1" dataField="Year" textAlign="center" color="0xFF0000"/>
+			<DataGridColumn id="dg1col2" dataField="Quarter" textAlign="center" width="120" backgroundColor="0xFFCC33"/>
+			<DataGridColumn id="dg1col3" dataField="Month" textAlign="center" headerStyleName="gridHeaderStyle"/>
+			<DataGridColumn id="dg1col4" dataField="Seoul" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col5" dataField="Pusan" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col6" dataField="Incheon" textAlign="right" formatter="{numfmt}" fontWeight="bold"/>
+			<DataGridColumn id="dg1col7" dataField="NewYork" textAlign="right" headerText="New York" textDecoration="underline"/>
+			<DataGridColumn id="dg1col8" dataField="LA" textAlign="right" headerText="L.A." fontStyle="italic"/>
+			<DataGridColumn id="dg1col9" dataField="Washington" textAlign="right" fontSize="12"/>
+			<DataGridColumn id="dg1col10" dataField="Revenue" textAlign="right" sortable="false" fontFamily="궁서"/>
+			<DataGridColumn id="dg1col11" dataField="Percent" textAlign="right" formatter="{percfmt}"/>
+		</columns>
+	</DataGrid>
+	<Style>
+		.gridHeaderStyle {
+			color:#FF0000;
+			fontWeight:bold;
+			textDecoration:normal;
+			fontSize:8;
+			horizontalAlign:left;
+			verticalAlign:bottom;
+			separatorColor:#000000;
+		}
+	</Style>
+
+</rMateGrid>

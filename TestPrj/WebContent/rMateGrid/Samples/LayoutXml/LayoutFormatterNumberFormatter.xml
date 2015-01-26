@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid backgroundColor="0xEEEEEE">
+<!--
+decimalSeparatorFrom 입력에 대해 정수와 소수부를 나누는데 사용하는 심볼 (기본 .)
+decimalSeparatorTo 출력에 대해 정수와 소수부를 나누는데 사용하는 심볼 (기본 .)
+precision 소수부의 자릿수. 0이하면 그대로 둠 (기본 -1)
+rounding 반올림 방식 (down,nearest,up,none 택일, 기본 none)
+thousandsSeparatorFrom 입력에 대해 천단위 구분 심볼 (기본 ,)
+thousandsSeparatorTo 출력에 대해 천단위 구분 심볼 (기본 ,)
+useNegativeSign 숫자가 음수일때 true이면 '-'를 붙이고, false이면 '('와 ')'를 붙임 (true,false중 택일, 기본 true)
+useThousandsSeparator true이면 천단위 구분 기호를 사용 (true,false중 택일, 기본 true)
+-->
+	<NumberFormatter id="numfmt"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle">
+		<columns>
+			<DataGridColumn id="dg1col1" dataField="Year" textAlign="center"/>
+			<DataGridColumn id="dg1col2" dataField="Quarter" textAlign="center"/>
+			<DataGridColumn id="dg1col3" dataField="Month" textAlign="center"/>
+			<DataGridColumn id="dg1col4" dataField="Seoul" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col5" dataField="Pusan" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col6" dataField="Incheon" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn id="dg1col7" dataField="NewYork" textAlign="right" headerText="New York"/>
+			<DataGridColumn id="dg1col8" dataField="LA" textAlign="right" headerText="L.A."/>
+			<DataGridColumn id="dg1col9" dataField="Washington" textAlign="right"/>
+			<DataGridColumn id="dg1col10" dataField="Revenue" textAlign="right"/>
+			<DataGridColumn id="dg1col11" dataField="Percent" textAlign="right"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

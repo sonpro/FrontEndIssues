@@ -1,0 +1,221 @@
+﻿<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javaScript" src="./JS/AC_OETags.js"></script>
+<script type="text/javaScript" src="./JS/rMateGrid.js"></script>
+<script type="text/javaScript" src="./JS/rMateGridLicense.js"></script>
+<style>
+body { margin: 0px; font-family: "굴림", "굴림체"; }
+</style>
+
+<!-- 사용자 정의 설정 시작 -->
+<script type="text/javascript">
+
+// ----------------------- rMateGrid flashVars 설정 시작 -----------------------
+
+// rMateGrid 레이아웃 URL 경로. 반드시 설정하십시오.
+var layoutURL = encodeURIComponent("./LayoutXml/LayoutLocale.xml");
+var flashVars = "layoutURL="+layoutURL;
+
+// 데이타를 URL 경로를 통해 가져올 경우 설정하십시오.
+// 배열형태로 데이터를 삽입할 경우 주석처리나 삭제하십시오.
+// 배열형태와 같이 사용할 경우, 우선순위는 배열형태 데이터 삽입입니다.
+var dataURL = encodeURIComponent("./DataXml/DataOneDepthLocale.xml");
+flashVars += "&dataURL="+dataURL;
+
+// 데이타가 JSON형일 경우 넣어줍니다. (설정을 안할경우 xml로 인식하여 오류가 발생합니다)
+//flashVars += "&dataType=json";
+
+// ----------------------- rMateGrid flashVars 설정 끝 -----------------------
+
+// rMateGrid 관련 객체
+var gridApp;	// 플래시 기본 객체
+var gridRoot;	// 데이타와 그리드를 포함하는 객체
+
+// rMateGrid가 로딩된 후 불려지는 함수
+var rMateGridOnLoad = function() {
+	gridApp = FABridge.gridBridge.root();
+	gridRoot = gridApp.getGridRoot();
+}
+
+// rMateGrid가 로딩된 후 불려질 함수를 설정합니다.
+FABridge.addInitializationCallback("gridBridge", rMateGridOnLoad);
+
+// print
+function print(mode) {
+	// 출력 컬럼 지정
+	//gridApp.setPrintColumns([0,1,2]);
+	// 출력 컬럼 폭 지정 - 반드시 setPrintColumns로 컬럼 지정을 해야하며 지정된 컬럼의 순서에 따라 폭이 넣어집니다.
+	//gridApp.setPrintColumnWidths([80,180,200]);
+
+	// 그리드의 폰트 크기 지정
+	//gridApp.setPrintGridFontSize(9);		// 기본값 화면에 표시된 그리드의 fontSize
+	// 그리드의 폰트 컬러 지정
+	//gridApp.setPrintGridColor(0x333333);		// 기본값 화면에 표시된 그리드의 color
+	// 그리드의 테두리 컬러 지정
+	//gridApp.setPrintGridBorderColor(0x000000);		// 기본값 화면에 표시된 그리드의 borderColor
+	// 그리드의 헤더 바탕 컬러 지정
+	//gridApp.setPrintGridHeaderColors([0xAAAAAA, 0xAAAAAA]);		// 기본값 화면에 표시된 그리드의 headerColors
+	// 그리드의 가로선 컬러 지정
+	//gridApp.setPrintGridHorizontalLineColor(0x000000);		// 기본값 화면에 표시된 그리드의 horizontalLineColor
+	// 그리드의 세로선 컬러 지정
+	//gridApp.setPrintGridVerticalLineColor(0x000000);		// 기본값 화면에 표시된 그리드의 verticalLineColor
+
+	// 용지 위쪽 마진 설정
+	//gridApp.setPrintMarginTop(10);		// 기본값 5
+	// 용지 왼쪽 마진 설정
+	//gridApp.setPrintMarginLeft(10);		// 기본값 5
+	// 용지 오른쪽 마진 설정
+	//gridApp.setPrintMarginRight(10);		// 기본값 5
+	// 용지 아래쪽 마진 설정
+	//gridApp.setPrintMarginBottom(10);		// 기본값 5
+
+	// Report Header 표시 여부
+	//gridApp.setPrintShowReportHeader(true);		// 기본값 false
+	// Report Header 높이
+	//gridApp.setPrintReportHeaderHeight(100);		// 기본값 80
+	// Report Header에 표시할 문자
+	//gridApp.setPrintReportHeaderText("Annual Report");		// 기본값 null
+	// Report Header에 표시할 문자열의 정렬
+	//gridApp.setPrintReportHeaderTextAlign("left");		// 기본값 center
+	// Report Header에 표시할 문자의 폰트 크기
+	//gridApp.setPrintReportHeaderFontSize(20);		// 기본값 18
+	// Report Header에 표시할 문자의 글씨색
+	//gridApp.setPrintReportHeaderColor(0x111111);		// 기본값 0x000000
+	// Report Header의 배경색
+	//gridApp.setPrintReportHeaderBackgroundColor(0xEEEEEE);		// 기본값 0xFFFFFF
+
+	// Report Footer 표시 여부
+	//gridApp.setPrintShowReportFooter(true);		// 기본값 false
+	// Report Footer 높이
+	//gridApp.setPrintReportFooterHeight(100);		// 기본값 80
+	// Report Footer에 표시할 문자
+	//gridApp.setPrintReportFooterText("Copyright 2013 Riamore Soft");		// 기본값 null
+	// Report Footer에 표시할 문자열의 정렬
+	//gridApp.setPrintReportFooterTextAlign("center");		// 기본값 right
+	// Report Footer에 표시할 문자의 폰트 크기
+	//gridApp.setPrintReportFooterFontSize(10);		// 기본값 11
+	// Report Footer에 표시할 문자의 글씨색
+	//gridApp.setPrintReportFooterColor(0x111111);		// 기본값 0x000000
+	// Report Footer의 배경색
+	//gridApp.setPrintReportFooterBackgroundColor(0xEEEEEE);		// 기본값 0xFFFFFF
+
+	// Page Header 표시 여부
+	//gridApp.setPrintShowPageHeader(true);		// 기본값 false
+	// Page Header 높이
+	//gridApp.setPrintPageHeaderHeight(30);		// 기본값 25
+	// Page Header의 왼쪽에 표시할 문자
+	//gridApp.setPrintPageHeaderLeftText("{today}");		// 기본값 null
+	// Page Header의 가운데에 표시할 문자
+	//gridApp.setPrintPageHeaderCenterText("(2003)");		// 기본값 null
+	// Page Header의 오른쪽에 표시할 문자
+	//gridApp.setPrintPageHeaderRightText("대외비");		// 기본값 null
+	// Page Header에 표시할 문자의 폰트 크기
+	//gridApp.setPrintPageHeaderFontSize(10);		// 기본값 11
+	// Page Header에 표시할 문자의 글씨색
+	//gridApp.setPrintPageHeaderColor(0x111111);		// 기본값 0x000000
+	// Page Header의 배경색
+	//gridApp.setPrintPageHeaderBackgroundColor(0xEEEEEE);		// 기본값 0xFFFFFF
+
+	// Page Footer 표시 여부
+	//gridApp.setPrintShowPageFooter(true);		// 기본값 false
+	// Page Footer 높이
+	//gridApp.setPrintPageFooterHeight(30);		// 기본값 25
+	// Page Footer의 왼쪽에 표시할 문자
+	//gridApp.setPrintPageFooterLeftText("{time}");		// 기본값 null
+	// Page Footer의 가운데에 표시할 문자
+	//gridApp.setPrintPageFooterCenterText("{pageStr}");		// 기본값 {pageStr}
+	// Page Footer의 오른쪽에 표시할 문자
+	//gridApp.setPrintPageFooterRightText("{toatalPageNo}");		// 기본값 null
+	// Page Footer에 표시할 문자의 폰트 크기
+	//gridApp.setPrintPageFooterFontSize(9);		// 기본값 10
+	// Page Footer에 표시할 문자의 글씨색
+	//gridApp.setPrintPageFooterColor(0x111111);		// 기본값 0x000000
+	// Page Footer의 배경색
+	//gridApp.setPrintPageFooterBackgroundColor(0xEEEEEE);		// 기본값 0xFFFFFF
+	
+	/* Text에 들어가는 특수 문자열
+	 * 		{pageNo} : 현재 페이지 번호
+	 * 		{toatalPageNo} : 전체 페이지 번호
+	 * 		{pageStr} : 현재 페이지 번호 / 전체 페이지 번호
+	 * 		{today} : 현재 날짜 (YYYY-MM-DD 형식)
+	 * 		{time} : 현재 시간 (YYYY-MM-DD HH:NN:SS 형식)
+	 */
+
+	 // 프린터로 출력
+	if (mode)
+		gridApp.print(mode);		// preview
+	else
+		gridApp.print();
+}
+
+</script>
+<!-- 사용자 정의 설정 끝  -->
+</head>
+
+<body onLoad="rMateGridInit()">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+	<tr height="80">
+		<td width="7%"></td>
+		<td align="center" valign="middle">
+			<br>
+			<b>Print</b>
+		</td>
+		<td width="7%"></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="center">"Print" 버튼을 누르시면 그리드 내용이 바로 인쇄되며,<br> "Print Preview" 버튼을 누르면 인쇄 미리보기를 보실 수 있습니다.<br>
+					출력되는 그리드의 크기는 프린터에 설정된 용지의 크기를 따르므로<br> 미리보기에서 설정하더라도 실제 인쇄시에 변경될 수 있습니다.
+					</td>
+				</tr>
+				<tr><td height="10"></td></tr>
+				<tr>
+					<td align="right">
+					<form id="inputForm" name="inputForm">
+						<input type="button" value="Print" onClick="print()"/>
+						<input type="button" value="Print Preview" onClick="print('preview')"/>
+					</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+					<td>
+						<script type="text/javascript">
+						<!--
+							rMateGridCreate("grid1", "../Component/rMateGridWeb", flashVars, "100%", "100%", "#FFFFFF");
+						// -->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center" valign="middle">
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(layoutURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewLayout.png" width="100" height="22" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(dataURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewData.png" width="100" height="22" border="0"/></a>
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" selectionMode="singleRow">
+		<columns>
+			<DataGridColumn dataField="Region"/>
+			<DataGridColumn dataField="Territory" width="150"/>
+			<DataGridColumn dataField="Territory_Rep" headerText="Territory Rep" width="150"/>
+<!--
+itemRenderer 를 "IconItem"로 설정하여 icon을 사용하고, secondLabelJsFunction에 icon을 결정할 자바스크립트 함수명을 넣어줍니다. 
+
+데이타에서 사용할 수 있는 icon명은 다음과 같습니다.
+Magnifier : 돋보기 (기본)
+Plus : 프러스 기호
+FolderOpen : 열린 폴더 모양
+FolderClosed : 닫힌 폴더 모양
+Arrow : 우측 방향 화살표
+Reguired : 빨간색 별표시
+Diskette : 디스켓 표시
+
+iconPlacement itemRenderer 를 "IconItem"로 설정할 경우 icon의 위치 정렬 지정 (left,right중 택일, 기본 left)
+-->
+			<DataGridColumn dataField="Actual" id="iconCol" itemRenderer="IconItem" secondLabelJsFunction="chooseIcon" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn dataField="Estimate"/>
+			<DataGridColumn dataField="Real"/>
+			<DataGridColumn dataField="Price"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

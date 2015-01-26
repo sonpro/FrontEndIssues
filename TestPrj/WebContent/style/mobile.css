@@ -1,0 +1,82 @@
+@charset "euc-kr";
+
+@import url(reset.css);      /* 리셋 전용 */
+@import url(bbs.css);      /* 테이블 전용 */
+@import url(common.css);   /* 공 통 사 용 */
+
+fieldset {border:0;}
+
+/* skip 숨김영역 */
+.skip, hr, fieldset legend  {
+  position:absolute;
+  width:0;
+  height:0;
+  font:0 Arial;
+  overflow:hidden;
+  left:-999em;
+}
+
+/************************ 1920사이즈 화면 css적용 ************************/
+
+html, 
+body {height:100%;margin:0px;padding:0px;}
+#head {padding:10px 0 10px 10px;background:#fff;position:relative;z-index: 1;}
+#body {min-height:100%;overflow-y:hidden; overflow-x:hidden;}
+* html #body {height:100%; overflow-y:hidden; overflow-x:hidden;}
+#content {float:center;  width:800px; margin:10px 0 0 60px; padding:10px 0 15px 60px;}
+
+
+.pop_text {font-size:12px; line-height:18px;}
+
+/* 컨텐츠 */
+#content .con_left{float:left; width:793px;padding-right:40px;}
+#content .con_center{float:center; width:793px;padding-right:40px;}
+#content .con_right{float:left; width:867px;}
+
+/** 서브단 컨텐츠 서브로케이션**/
+/* #content {float:left; width:750px; margin:0px; padding:30px 0px 80px 40px;} */
+#content .pagenav {width:793px; height:28px; border-bottom:1px solid #e5e5e5; margin:0px;}
+#content .title {float:left; padding:0px; font-size:18px; color:#555555; width:300px; font-weight:bold;}
+#content .nav {float:right; padding-top:10px;}
+#content .nav ul li {padding:0px; font-size:11px; color:#888; vertical-align:middle;}
+#content .nav ul li .location {padding:0px; font-size:11px; color:#555; vertical-align:middle;}
+
+/* pop 검색 */
+.pop_search {float:left; width:793px; padding:10px 0px 0px 0px; margin:0px;}
+.pop_search_boxt2 {background:url(../images/pop/search_box101.gif) no-repeat; height:10px; width:793px;}
+.pop_search_boxc2 {background:url(../images/pop/search_box201.gif) repeat-y; width:793px; padding:7px 0px 5px 25px;}
+.pop_search_boxb2 {background:url(../images/pop/search_box601.gif) no-repeat; height:10px; width:793px;}
+
+/* 그리드 영역 */
+.pop_xgrid {border:1px solid #dddddd; background-color:#fff; color:#555; font-size:14px; height:150px; text-align:center;padding-top:50px;}
+
+
+/* 사업명 전체 트리레이어 */
+.pop_tree{position:absolute; z-index:100; top:127px; left:174px; width:523px; border:2px solid #6ac1cc; background:#fff;}
+.pop_tree .list {min-height:200px; padding:10px;}
+.pop_tree .close_bt{border-top:1px solid #e5e5e5; background:#f4f4f4; text-align:center; padding:0 0 3px 0;}
+
+
+/* 팝업/업무단 탭 실행버튼 */
+.tab_line2{background:url(/images/common/tab_line.gif) repeat-x; height:28px; width:100%; margin:0px;}
+
+/* 실행버튼 위치 */
+.pop_action_bt {
+	padding-top: 5px;
+	text-align: right;
+	padding-right: 5px;
+}
+.pop_action_bt_01 {padding-top:10px; text-align:right;}
+.pop_search_bt {*display:inline; padding-top:10px; _padding-top:10px;}
+
+/* 과제검색 */
+.pop_detail_boxt {background:url(../images/pop/pop_detail_boxt.gif) repeat-y; width:793px;}
+.pop_detail_boxc {width:793px; padding:0px 0px 5px 25px;}
+
+/* 총건수  컬러*/
+.total_box{width:793px; padding-top:10px;}
+.total_box1{width:344px; padding-top:15px;}
+.pop_total_box{padding-top:30px;}
+
+/* 실행버튼 위치 */
+.search_bt2 {padding-top:10px; width:793px;}

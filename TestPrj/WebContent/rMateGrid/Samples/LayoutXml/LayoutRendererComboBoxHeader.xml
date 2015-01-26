@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows">
+		<columns>
+			<DataGridColumn dataField="From" width="80"/>
+			<DataGridColumn dataField="Subject" width="150"/>
+			<DataGridColumn id="dg1col3" dataField="ReceiveDate" headerRenderer="ComboBoxHeader"
+				headerRendererDataProvider="[{'label':'2006년'},{'label':'2007년'}]"/>
+			<DataGridColumn dataField="SendDate" headerText="Send"/>
+			<DataGridColumn dataField="CC"/>
+			<DataGridColumn dataField="Level"/>
+			<DataGridColumn dataField="Length" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right" formatter="{numfmt}"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

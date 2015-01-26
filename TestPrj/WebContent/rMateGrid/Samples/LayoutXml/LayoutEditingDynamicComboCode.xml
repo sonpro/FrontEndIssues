@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+<!--
+컨텍스트 메뉴를 만들어 그리드에서 오른쪽 마우스를 눌렀을때 사용가능한 기능을 표시할 수 있습니다.
+사용자가 선택한 메뉴는 자바스크립트에서 함수의 파라메터로 전달받아 필요한 작업을 수행할 수 있습니다
+-->
+	<ContextMenu id="cMenu">
+		<ContextMenuItem caption="Insert Row"/>
+		<ContextMenuItem caption="Delete Row"/>
+	</ContextMenu>
+<!--
+editable 수정모드 지정 (true,false중 택일, 기본 false)
+doubleClickEnabled 더블클릭 가능 여부 (true,false중 택일, 기본 false, true의 경우 더블클릭하면 해당 셀을 수정할수 있게 됩니다)
+-->
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" editable="true" doubleClickEnabled="true" contextMenu="{cMenu}" horizontalScrollPolicy="auto" horizontalGridLines="true"
+	horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows" itemEditBeginningJsFunction="itemEditBeginningFunction">
+		<columns>
+			<DataGridColumn dataField="Selected" editable="false"/>
+			<DataGridColumn dataField="From" width="80" editable="false"/>
+			<DataGridColumn dataField="Subject1" id="col2" width="100" itemEditor="ComboBoxEditor" editorDataField="selectedDataField" itemRendererDataField="code" itemRenderer="DataProviderItem"
+				itemRendererDataProvider="[
+					{'code':'G-1','label':'GMC-1'},
+					{'code':'G-2','label':'GMC-2'},
+					{'code':'G-3','label':'GMC-3'},
+					{'code':'G-4','label':'GMC-4'},
+					{'code':'G-5','label':'GMC-5'},
+					{'code':'G-6','label':'GMC-6'}
+				]"/>
+<!--
+itemRenderer 를 "DataProviderItem"로 설정하여 itemRendererDataProvider나 itemRendererDataProviderField에서 셀에 표시할 라벨을 찾아 보여주도록 하고
+itemEditor 를 "DynamicComboBoxEditor"로 설정하여 에디팅시 itemRendererDataProvider나 itemRendererDataProviderField에서 ComboBox의 선택list를 가져오도록 합니다. 선택list는 itemEditBeginningJsFunction 함수에서 visible값을 조정하여 표시여부를 결정하도록 합니다.
+
+editorDataField ComboBoxEditor에서 수정후 결과값을 가져올 속성(변경불가)
+itemRendererDataField itemRendererDataProvider나 itemRendererDataProviderField에서 코드를 나타내는 필드명
+itemRendererLabelField itemRendererDataProvider나 itemRendererDataProviderField에서 라벨을 나타내는 필드명 (기본 "label") 
+-->
+			<DataGridColumn dataField="Subject2" id="col3" width="150" itemEditor="DynamicComboBoxEditor" editorDataField="selectedDataField" itemRendererDataField="code" itemRenderer="DataProviderItem"
+				itemRendererDataProvider="[
+					{'code':'G-1-1', 'label':'GMC-1 Release1', 'Subject1':'G-1', 'visible':true},
+					{'code':'G-1-2', 'label':'GMC-1 Release2', 'Subject1':'G-1', 'visible':true},
+					{'code':'G-1-3', 'label':'GMC-1 Release3', 'Subject1':'G-1', 'visible':true},
+					{'code':'G-1-4', 'label':'GMC-1 Release4', 'Subject1':'G-1', 'visible':true},
+					{'code':'G-1-5', 'label':'GMC-1 Release5', 'Subject1':'G-1', 'visible':true},
+	
+					{'code':'G-2-1', 'label':'GMC-2 Release1', 'Subject1':'G-2', 'visible':false},
+					{'code':'G-2-2', 'label':'GMC-2 Release2', 'Subject1':'G-2', 'visible':false},
+					{'code':'G-2-3', 'label':'GMC-2 Release3', 'Subject1':'G-2', 'visible':false},
+					{'code':'G-2-4', 'label':'GMC-2 Release4', 'Subject1':'G-2', 'visible':false},
+					{'code':'G-2-5', 'label':'GMC-2 Release5', 'Subject1':'G-2', 'visible':false},
+	
+					{'code':'G-3-1', 'label':'GMC-3 Release1', 'Subject1':'G-3', 'visible':false},
+					{'code':'G-3-2', 'label':'GMC-3 Release2', 'Subject1':'G-3', 'visible':false},
+					{'code':'G-3-3', 'label':'GMC-3 Release3', 'Subject1':'G-3', 'visible':false},
+					{'code':'G-3-4', 'label':'GMC-3 Release4', 'Subject1':'G-3', 'visible':false},
+					{'code':'G-3-5', 'label':'GMC-3 Release5', 'Subject1':'G-3', 'visible':false},
+	
+					{'code':'G-4-1', 'label':'GMC-4 Release1', 'Subject1':'G-4', 'visible':false},
+					{'code':'G-4-2', 'label':'GMC-4 Release2', 'Subject1':'G-4', 'visible':false},
+					{'code':'G-4-3', 'label':'GMC-4 Release3', 'Subject1':'G-4', 'visible':false},
+					{'code':'G-4-4', 'label':'GMC-4 Release4', 'Subject1':'G-4', 'visible':false},
+					{'code':'G-4-5', 'label':'GMC-4 Release5', 'Subject1':'G-4', 'visible':false},
+	
+					{'code':'G-5-1', 'label':'GMC-5 Release1', 'Subject1':'G-5', 'visible':false},
+					{'code':'G-5-2', 'label':'GMC-5 Release2', 'Subject1':'G-5', 'visible':false},
+					{'code':'G-5-3', 'label':'GMC-5 Release3', 'Subject1':'G-5', 'visible':false},
+					{'code':'G-5-4', 'label':'GMC-5 Release4', 'Subject1':'G-5', 'visible':false},
+					{'code':'G-5-5', 'label':'GMC-5 Release5', 'Subject1':'G-5', 'visible':false},
+	
+					{'code':'G-6-1', 'label':'GMC-6 Release1', 'Subject1':'G-6', 'visible':false},
+					{'code':'G-6-2', 'label':'GMC-6 Release2', 'Subject1':'G-6', 'visible':false},
+					{'code':'G-6-3', 'label':'GMC-6 Release3', 'Subject1':'G-6', 'visible':false},
+					{'code':'G-6-4', 'label':'GMC-6 Release4', 'Subject1':'G-6', 'visible':false},
+					{'code':'G-6-5', 'label':'GMC-6 Release5', 'Subject1':'G-6', 'visible':false}
+				]"/>
+			<DataGridColumn dataField="ReceiveDate" editable="false"/>
+			<DataGridColumn dataField="CC" editable="false"/>
+			<DataGridColumn dataField="Length" textAlign="right" formatter="{numfmt}" editable="false"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right" formatter="{numfmt}" editable="false"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>
