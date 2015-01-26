@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" href="dtree.css" type="text/css" />
+<script type="text/javaScript" src="JS/dtree.js"></script>
+</head>
+
+<body>
+
+<table id="main_table" width="100%" cellpadding="0" cellspacing="0">
+<tr><td style="padding:10 10 10 10;">
+ <div style="TEXT-ALIGN: left; leftMargin:0; padding:0 0 0 0;">  
+
+<!-------------------------------------------------------------------------------------->
+<!-- 그리드 타입 메뉴 구성 -->
+<!-------------------------------------------------------------------------------------->
+
+	<div id=tab_0 class="dtree" style="display:block; padding:0 0 0 0;">
+		<script type="text/javascript">
+		<!--
+
+		//id, pid, name, url, title, target, icon, iconOPne, open,
+
+		ct = new dTree('ct');
+		ct.config.target="right";
+		ct.config.folderLinks = true;
+
+
+// --------------- Grid Type -------------------- //
+		ct.add(0, -1, ' <B>rMate Grid</B>', './Overview.html', 'rMate Flash Grid');
+
+		ct.add(100, 0, '그리드', '');
+		ct.add(101, 100, '그리드 속성 조정', '../Samples/DataGrid_Properties.html');
+		ct.add(102, 100, '그리드 스타일 조정', '../Samples/DataGrid_Styles.html');
+		ct.add(103, 100, '틀 고정', '../Samples/DataGrid_Lock.html');
+		ct.add(104, 100, 'JavaScript에 의한 데이타팁 변경', '../Samples/DataGrid_DataTipJsFunction.html');
+
+		ct.add(200, 0, '컬럼','');
+		ct.add(201, 200, '기본 컬럼 생성', '../Samples/Column_Create.html');
+		ct.add(202, 200, '그룹 컬럼 생성', '../Samples/GroupColumn_Create.html');
+		ct.add(203, 200, '컬럼 속성 조정', '../Samples/Column_Properties.html');
+		ct.add(204, 200, '컬럼 스타일 조정', '../Samples/Column_Styles.html');
+		ct.add(205, 200, '컬럼 정렬', '../Samples/Column_Sorting_JSON.html');
+		ct.add(205, 200, '컬럼 정렬(XML 데이타)', '../Samples/Column_Sorting_XML.html');
+		ct.add(206, 200, '컬럼 이동', '../Samples/Column_Shift.html');
+		ct.add(207, 200, '컬럼 보이기/숨기기', '../Samples/Column_ShowHide.html');
+		ct.add(208, 200, 'JavaScript에 의한 라벨 변경', '../Samples/Column_LabelJsFunction.html');
+		ct.add(209, 200, 'JavaScript에 의한 스타일 변경', '../Samples/Column_StyleJsFunction.html');
+		ct.add(210, 200, 'JavaScript에 의한 데이타팁 변경', '../Samples/Column_DataTipJsFunction.html');
+
+		ct.add(300, 0, '데이타 연동','');
+		ct.add(301, 300, 'XML URL', '../Samples/XML_URL.html');
+		ct.add(302, 300, 'XML URL로 읽어온 데이타 가져오기', '../Samples/XML_URL_Data.html');
+		ct.add(303, 300, 'JSON URL', '../Samples/JSON_URL.html');
+		ct.add(304, 300, 'JSON URL로 읽어온 데이타 가져오기', '../Samples/JSON_URL_Data.html');
+		ct.add(305, 300, 'XML String', '../Samples/XML_String.html');
+		ct.add(306, 300, 'JSON String', '../Samples/JSON_String.html');
+		ct.add(307, 300, 'JavaScript 배열로 넣기', '../Samples/Javascript_Array.html');
+		ct.add(308, 300, '동적 데이타 변경', '../Samples/Dynamic_Change_Data.html');
+
+		ct.add(400, 0, '레이아웃 연동','');
+		ct.add(401, 400, 'JavaScript로 넣기', '../Samples/Layout_Javascript.html');
+		ct.add(402, 400, '동적으로 변경', '../Samples/Dynamic_Change.html');
+
+		ct.add(500, 0, 'Editing', '');
+		ct.add(501, 500, 'JavaScript연동 편집(XML)', '../Samples/Editing_Javascript_XML.html');
+		ct.add(502, 500, 'JavaScript연동 편집(Object)', '../Samples/Editing_Javascript_Object.html');
+		ct.add(503, 500, 'Popup연동', '../Samples/Editing_Popup.html');
+		ct.add(504, 500, '그리드내 편집', '../Samples/Editing_DataGrid.html');
+		ct.add(505, 500, '편집용 컴포넌트로 편집', '../Samples/Editing_Editor.html');
+		ct.add(506, 500, 'ComboBox 컴포넌트로 편집', '../Samples/Editing_ComboCode.html');
+		ct.add(507, 500, 'DynamicComboBox 컴포넌트로 편집', '../Samples/Editing_Dynamic_ComboCode.html');
+		ct.add(508, 500, '편집가능 여부 제어', '../Samples/Editing_ItemEditBeginningJsFunction.html');
+		ct.add(509, 500, '편집내용 검사', '../Samples/Editing_ItemEditEndJsFunction.html');
+		ct.add(510, 500, '변경시 이벤트 받기', '../Samples/Editing_ItemDataChanged_Event.html');
+		ct.add(511, 500, '편집후 서버에 저장', '../Samples/Editing_SubmitToServer.html');
+
+		ct.add(600, 0, '렌더러(셀표시객체)', '');
+		ct.add(601, 600, 'Html', '../Samples/Renderer_Html.html');
+		ct.add(602, 600, 'Html Link', '../Samples/Renderer_Html_Link.html');
+		ct.add(603, 600, 'Image', '../Samples/Renderer_Image.html');
+		ct.add(604, 600, 'ItemRendererDataProvider', '../Samples/Renderer_DataProvider.html');
+		ct.add(605, 600, 'Icon 일괄 적용', '../Samples/Renderer_Icon_Column.html');
+		ct.add(606, 600, 'Icon 선택 적용', '../Samples/Renderer_Icon_SecondDataField.html');
+		ct.add(607, 600, 'HandCursor 일괄 적용', '../Samples/Renderer_HandCursor_Column.html');
+		ct.add(608, 600, 'HandCursor 선택 적용', '../Samples/Renderer_HandCursor_SecondDataField.html');
+		ct.add(609, 600, 'Index No.', '../Samples/Renderer_IndexNo.html');
+		ct.add(610, 600, 'ComboBoxHeader', '../Samples/Renderer_ComboBoxHeader.html');
+		ct.add(611, 600, 'HtmlHeader', '../Samples/Renderer_HtmlHeader.html');
+
+		ct.add(700, 0, '데이타 제어','');
+		ct.add(701, 700, 'JavaScript에 의한 데이타 제어', '../Samples/Collection.html');
+		ct.add(702, 700, '필드 데이타 제어', '../Samples/ItemFieldAt.html');
+		ct.add(703, 700, 'XML 데이타 파싱', '../Samples/JavaScript_XMLParser.html');
+		ct.add(704, 700, '합산 레코드 제어', '../Samples/SummaryRow_Control.html');
+
+		ct.add(800, 0, '포맷터', '');
+		ct.add(801, 800, 'NumberFormatter', '../Samples/Formatter_NumberFormatter.html');
+		ct.add(802, 800, 'DateFormatter', '../Samples/Formatter_DateFormatter.html');
+		ct.add(803, 800, 'PercentFormatter', '../Samples/Formatter_PercentFormatter.html');
+		ct.add(804, 800, 'NumberMaskFormatter', '../Samples/Formatter_NumberMaskFormatter.html');
+		ct.add(805, 800, 'CurrencyFormatter', '../Samples/Formatter_CurrencyFormatter.html');
+
+		ct.add(900, 0, '셀렉터(행선택)', '');
+		ct.add(901, 900, 'CheckBox', '../Samples/Selector_CheckBoxItem.html');
+		ct.add(902, 900, 'CheckBox 선택 설정', '../Samples/Selector_CheckBoxItem_Set.html');
+		ct.add(903, 900, 'Radio', '../Samples/Selector_Radio.html');
+
+		ct.add(1000, 0, '행, 셀 속성 제어', '');
+		ct.add(1001, 1000, '데이타에 속성정보 넣기', '../Samples/Span_Data.html');
+		ct.add(1002, 1000, '함수 호출로 속성정보 넣기', '../Samples/Span_Function.html');
+		ct.add(1003, 1000, '행 속성 지정(스타일,배경색,잠금,포맷,높이)', '../Samples/Span_RowAttr.html');
+		ct.add(1004, 1000, '셀 속성 지정(스타일,배경색,포맷,병합)', '../Samples/Span_CellAttr.html');
+
+		ct.add(1100, 0, 'Excel', '');
+		ct.add(1101, 1100, 'Excel CSV import', '../Samples/Excel_CSV_Import.html');
+		ct.add(1102, 1100, 'Excel export', '../Samples/Excel_Export.html');
+		ct.add(1103, 1100, 'Excel export 제목, 꼬릿말', '../Samples/Excel_Export_TitleFooter.html');
+		ct.add(1104, 1100, 'Excel export 컬럼지정', '../Samples/Excel_Export_Columns.html');
+
+		ct.add(1200, 0, '검색', '');
+		ct.add(1201, 1200, '필터링', '../Samples/Filtering_Data.html');
+		ct.add(1202, 1200, '검색', '../Samples/Searching_Data.html');
+
+		ct.add(1300, 0, '선택 제어', '');
+		ct.add(1301, 1300, '한행 선택', '../Samples/Select_SingleRow.html');
+		ct.add(1302, 1300, '여러행 선택', '../Samples/Select_MultiRows.html');
+		ct.add(1303, 1300, '한셀 선택', '../Samples/Select_SingleCell.html');
+		ct.add(1304, 1300, '여러셀 선택', '../Samples/Select_MultiCells.html');
+		ct.add(1305, 1300, '마우스로 행 선택', '../Samples/DragSelectable_MultiRows.html');
+		ct.add(1306, 1300, '마우스로 셀 선택', '../Samples/DragSelectable_MultiCells.html');
+		ct.add(1307, 1300, '선택내역 Copy', '../Samples/Selection_To_Clipboard.html');
+
+		ct.add(1400, 0, '계층형 자료', '');
+		ct.add(1401, 1400, '계층형 XML자료 보이기', '../Samples/Hierarchy_XML_Data.html');
+		ct.add(1402, 1400, '계층형 JSON자료 보이기', '../Samples/Hierarchy_JSON_Data.html');
+		ct.add(1403, 1400, '그룹핑 기능', '../Samples/Grouping_Data.html');
+
+		ct.add(1500, 0, '합산', '');
+		ct.add(1501, 1500, '필드 자동 병합', '../Samples/Summary_MergeField.html');
+		ct.add(1502, 1500, '소계, 전체합계', '../Samples/Summary_Total.html');
+		ct.add(1503, 1500, '합산의 라벨 변경', '../Samples/Summary_LabelJsFunction.html');
+		ct.add(1504, 1500, '전체 합계', '../Samples/Summary_All_Total.html');
+
+		ct.add(1600, 0, '푸터', '');
+		ct.add(1601, 1600, '푸터 속성', '../Samples/Footer_Properties.html');
+		ct.add(1602, 1600, '푸터 labelJsFunction', '../Samples/Footer_LabelJsFunction.html');
+		ct.add(1603, 1600, '푸터 스타일 조정', '../Samples/Footer_Styles.html');
+
+		ct.add(1700, 0, '여러 그리드 생성', '');
+		ct.add(1701, 1700, '두개의 그리드 생성', '../Samples/TwoGrid_Create.html');
+		ct.add(1702, 1700, '두개의 그리드 연동', '../Samples/TwoGrid_Control.html');
+
+		ct.add(1800, 0, '스타일', '');
+		ct.add(1801, 1800, '스타일명에 의한 지정', '../Samples/Style_StyleName.html');
+		ct.add(1802, 1800, '개별 스타일 지정', '../Samples/Style_Styles.html');
+
+		ct.add(1900, 0, '기타', '');
+		ct.add(1901, 1900, 'Context Menu 지정', '../Samples/ContextMenu_Create.html');
+		ct.add(1902, 1900, '대용량 데이타', '../Samples/Big_Data.html');
+		ct.add(1903, 1900, '그리드 위에 메세지 표시', '../Samples/Display_Message.html');
+		ct.add(1904, 1900, '페이징 구현', '../Samples/Data_Paging.html');
+		ct.add(1905, 1900, '다국어', '../Samples/Locale.html');
+		ct.add(1906, 1900, '로딩표시 보이기/숨기기', '../Samples/LoadingBar.html');
+		ct.add(1907, 1900, 'wmode, 마우스 휠 이벤트', '../Samples/MouseWheel.html');
+		ct.add(1908, 1900, 'euc-kr 인코딩', '../Samples/Euc-kr.html');
+
+		document.write(ct);
+
+		//-->
+		</script>
+		<p><a href="javascript: ct.openAll();">Open all</a> | <a href="javascript: ct.closeAll();">Close all</a></p>
+	</div>
+
+ </div> 
+</td></tr></table>
+
+<!-- 평가판 다운로드 버턴 -->
+	<!--p><a href="http://demo.riamore.net/bbs/board/message/trace_grid_write.form.do?boardName=traceGrid" target="right"><img src="http://demo.riamore.net/flashdemo/grid/Web/trialDown/image/trial_download.gif"/></a-->
+
+</body>
+</html>

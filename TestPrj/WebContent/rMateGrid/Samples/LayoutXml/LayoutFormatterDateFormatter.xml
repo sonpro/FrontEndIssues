@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+<!--
+formatString 날짜 포맷 문자열 (Y|M|D|A|E|H|J|K|L|N|S|Q) - 사용설명서 참조
+             데이타의 날짜는 반드시 YYYY/MM/DD 형식이어야 합니다. 
+-->
+	<DateFormatter id="datefmt"/>
+	<DateFormatter id="datefmt2" formatString="YY년 MM월 DD일"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows">
+		<columns>
+			<DataGridColumn dataField="From" width="80"/>
+			<DataGridColumn dataField="Subject" width="120"/>
+			<DataGridColumn dataField="ReceiveDate" headerText="Receive" formatter="{datefmt}"/>
+			<DataGridColumn dataField="SendDate" headerText="Send" formatter="{datefmt2}"/>
+			<DataGridColumn dataField="CC"/>
+			<DataGridColumn dataField="Level"/>
+			<DataGridColumn dataField="Length" textAlign="right"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javaScript" src="./JS/AC_OETags.js"></script>
+<script type="text/javaScript" src="./JS/rMateGrid.js"></script>
+<script type="text/javaScript" src="./JS/rMateGridLicense.js"></script>
+<style>
+body { margin: 0px; font-family: "굴림", "굴림체"; }
+</style>
+
+<!-- 사용자 정의 설정 시작 -->
+<script type="text/javascript">
+
+// ----------------------- rMateGrid flashVars 설정 시작 -----------------------
+
+var flashVars;
+
+// 데이타가 JSON형일 경우 넣어줍니다. (설정을 안할경우 xml로 인식하여 오류가 발생합니다)
+flashVars += "&dataType=json";
+
+// ----------------------- rMateGrid flashVars 설정 끝 -----------------------
+
+// rMateGrid 관련 객체
+var gridApp;	// 플래시 기본 객체
+var gridRoot;	// 데이타와 그리드를 포함하는 객체
+
+// rMateGrid가 로딩된 후 불려지는 함수
+var rMateGridOnLoad = function() {
+	gridApp = FABridge.gridBridge.root();
+	gridRoot = gridApp.getGridRoot();
+	gridApp.setLayout(layoutStr);
+
+	var layoutCompleteHandler = function(event) {
+		gridApp.setDataURLEx("./DataXml/DataOneDepthMailSend.txt");
+	}
+
+	gridRoot.addEventListener("layoutComplete", layoutCompleteHandler);
+}
+
+// rMateGrid가 로딩된 후 불려질 함수를 설정합니다.
+FABridge.addInitializationCallback("gridBridge", rMateGridOnLoad);
+
+var layoutStr = "\
+<?xml version=\"1.0\" encoding=\"utf-8\"?>\
+<rMateGrid>\
+	<NumberFormatter id=\"numfmt\" useThousandsSeparator=\"true\"/>\
+	<DataGrid id=\"dg1\" horizontalScrollPolicy=\"auto\" horizontalGridLines=\"true\" horizontalGridLineColor=\"0xCCCCCC\" verticalAlign=\"middle\" selectionMode=\"multipleRows\">\
+		<columns>\
+			<DataGridColumn dataField=\"From\" width=\"80\"/>\
+			<DataGridColumn dataField=\"Subject\" width=\"120\"/>\
+			<DataGridColumn dataField=\"ReceiveDate\" headerText=\"Date\"/>\
+			<DataGridColumn dataField=\"CC\"/>\
+			<DataGridColumn dataField=\"Level\"/>\
+			<DataGridColumn dataField=\"Length\"/>\
+			<DataGridColumn dataField=\"AttachCount\" textAlign=\"right\" formatter=\"{numfmt}\"/>\
+		</columns>\
+	</DataGrid>\
+</rMateGrid>\
+";
+
+var layoutStr2 = "\
+<?xml version=\"1.0\" encoding=\"utf-8\"?>\
+<rMateGrid>\
+	<NumberFormatter id=\"numfmt\" useThousandsSeparator=\"true\"/>\
+	<DataGrid id=\"dg1\" horizontalScrollPolicy=\"auto\" horizontalGridLines=\"true\" horizontalGridLineColor=\"0xCCCCCC\" verticalAlign=\"middle\" selectionMode=\"multipleRows\">\
+		<columns>\
+			<DataGridColumn dataField=\"Subject\" width=\"120\"/>\
+			<DataGridColumn dataField=\"ReceiveDate\" headerText=\"Date\"/>\
+			<DataGridColumn dataField=\"CC\"/>\
+			<DataGridColumn dataField=\"AttachCount\" textAlign=\"right\" formatter=\"{numfmt}\"/>\
+		</columns>\
+	</DataGrid>\
+</rMateGrid>\
+";
+
+function changeLayoutURL() {
+	gridApp.setLayoutURLEx("./LayoutXml/LayoutSimple.xml");
+}
+
+function changeLayout() {
+	gridApp.setLayout(layoutStr2);
+}
+
+function changeLayoutData() {
+	gridApp.setLayoutURLEx("./LayoutXml/LayoutSimple.xml");
+	gridApp.setDataURLEx("./DataXml/DataOneDepthMailSend.txt");
+}
+</script>
+<!-- 사용자 정의 설정 끝  -->
+</head>
+
+<body onLoad="rMateGridInit()">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+	<tr height="80">
+		<td width="7%"></td>
+		<td align="center" valign="middle">
+			<br>
+			<b>JavaScript로 동적으로 레이아웃 또는 데이타 변경</b>
+		</td>
+		<td width="7%"></td>
+	</tr>
+	<tr height="50">
+		<td></td>
+		<td align="right">
+			<input type="button" value="레이아웃URL 변경" onClick="changeLayoutURL()"/>
+			<input type="button" value="setLayout으로 변경" onClick="changeLayout()"/>
+			<input type="button" value="레이아웃,데이타 변경" onClick="changeLayoutData()"/>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+					<td>
+						<script type="text/javascript">
+						<!--
+							rMateGridCreate("grid1", "../Component/rMateGridWeb", flashVars, "100%", "100%", "#FFFFFF");
+						// -->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center" valign="middle">
+			<a href="#" onClick="javascript:window.open(decodeURIComponent('./LayoutXml/LayoutSimple.xml'), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewLayout.png" width="100" height="22" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="javascript:window.open(decodeURIComponent('./DataXml/DataOneDepthMailSend.txt'), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewData.png" width="100" height="22" border="0"/></a>
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+</body>
+</html>

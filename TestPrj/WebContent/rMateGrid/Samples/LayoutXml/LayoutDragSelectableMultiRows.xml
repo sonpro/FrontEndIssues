@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+<!--
+selectionMode 그리드의 선택모드 설정 (multipleCells, multipleRows, none, singleCell, singleRow중 택일, 기본 singleCell)
+dragSelectable 마우스를 드래그하여 선택할 수 있는지 여부 (true,false중 택일, 기본 false)
+-->
+	<DataGrid id="dg1" selectionMode="multipleRows" dragSelectable="true">
+		<columns>
+			<DataGridColumn dataField="Region"/>
+			<DataGridColumn dataField="Territory" width="150"/>
+			<DataGridColumn dataField="Territory_Rep" headerText="Territory Rep" width="150"/>
+			<DataGridColumn dataField="Actual"/>
+			<DataGridColumn dataField="Estimate"/>
+			<DataGridColumn dataField="Real"/>
+			<DataGridColumn dataField="Price"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

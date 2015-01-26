@@ -1,0 +1,59 @@
+.chkbiz {width:15px; height:15px}
+
+/*
+BODY  {font-size: 9pt; line-height: 15px; font-family: , arial,curier,seoul; color: #7F7F7F;	line-height:15px;
+
+		scrollbar-3dlight-color: #E7E7E7; 
+		scrollbar-arrow-color: #E7E7E7; 
+		scrollbar-base-color: #ffffff; 
+		scrollbar-darkshadow-color: #ffffff; 
+		scrollbar-face-color: #ffffff; 
+		scrollbar-highlight-color: #ffffff; 
+		scrollbar-shadow-color: #E7E7E7; 
+		scrollbar-track-color: #f7f7f7;  
+}
+*/
+
+.dtree {
+	font-family:; font-size:9pt; 
+	color: #666;
+	white-space: nowrap;
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+.dtree a {
+	color: #333;
+	text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: #333;
+	text-decoration: underline;
+}
+.dtree a.nodeSel {
+	background-color: #c0d2ec;
+}
+.dtree .clip {
+	overflow: hidden;
+}
+
+
+.node {
+	font-family:; font-size:9pt; 
+	color: #666;
+	white-space: nowrap;
+}
+
+
+
+.nodeSel {
+	font-family:; font-size:9pt; 
+	color: #666;
+	white-space: nowrap;
+	font-weight:bold;
+}

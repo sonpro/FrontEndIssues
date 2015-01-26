@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<PercentFormatter id="percfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" fontSize="12" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows">
+		<columns>
+			<DataGridColumn dataField="From" width="80"/>
+			<DataGridColumn dataField="Subject" width="120"/>
+			<DataGridColumn dataField="ReceiveDate" headerText="Receive"/>
+			<DataGridColumn dataField="SendDate" headerText="Send"/>
+			<DataGridColumn dataField="CC"/>
+			<DataGridColumn dataField="Level" width="50"/>
+			<DataGridColumn dataField="Length" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right" formatter="{numfmt}"/>
+		</columns>
+		<dataProvider>
+			<!-- 그리드의 자료를 dataProvider가 아닌 별도의 컴포넌트에 입력해야 할 경우 아래와 같이 $gridData를 넣어줍니다 -->
+			<GroupingCollection source="{$gridData}">
+					<Grouping>
+							<GroupingField name="From"/>
+					</Grouping>
+			</GroupingCollection>
+		</dataProvider>
+	</DataGrid>
+	<Style>
+		.subTotalStyle {
+			color: #669900;
+			fontSize: 11;
+			textAlign: center;
+		}
+		.allTotalHeaderStyle {
+			color: #0000FF;
+			fontWeight: bold;
+			fontSize: 11;
+			textAlign: center;
+		}
+		.allTotalStyle {
+			color: #0000FF;
+			fontWeight: bold;
+			fontSize: 11;
+			textAlign: right;
+		}
+	</Style>
+</rMateGrid>

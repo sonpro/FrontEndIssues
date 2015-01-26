@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<!-- Style노드에서 스타일을 정의하고 해당 스타일을 styleName 속성을 이용하여 지정한 경우 -->
+	<DataGrid id="dg1" styleName="gridStyle" sortExpertMode="false">
+		<columns>
+			<DataGridColumn id="dg1col1" dataField="Year"/>
+			<DataGridColumn id="dg1col2" dataField="Quarter"/>
+			<DataGridColumn id="dg1col3" dataField="Month"/>
+			<DataGridColumn id="dg1col4" dataField="Seoul"/>
+			<DataGridColumn id="dg1col5" dataField="Pusan"/>
+			<DataGridColumn id="dg1col6" dataField="Incheon"/>
+			<DataGridColumn id="dg1col7" dataField="NewYork"/>
+			<DataGridColumn id="dg1col8" dataField="LA"/>
+			<DataGridColumn id="dg1col9" dataField="Washington"/>
+			<DataGridColumn id="dg1col10" dataField="Revenue"/>
+			<DataGridColumn id="dg1col11" dataField="Percent"/>
+		</columns>
+	</DataGrid>
+	<Style>
+		.gridStyle {
+			color:#378F8B;
+			alternatingItemColors:#C5E3E3,#FFFFFF;
+			headerColors:#88C3C3,#5C8484;
+			headerStyleName:gridHeaderStyle;
+			horizontalGridLines:true;
+			horizontalGridLineColor:#5C8484;
+			selectionColor:#ADC1C1;
+			rollOverColor:#CC9999;
+			fontWeight:bold;
+			textDecoration:underline;
+			fontSize:12;
+			verticalAlign:middle;
+			verticalGridLineColor:#5C8484;
+		}
+		.gridHeaderStyle {
+			color:#FFFFFF;
+			fontWeight:bold;
+			textDecoration:normal;
+			fontSize:12;
+			horizontalAlign:center;
+			verticalAlign:middle;
+			separatorColor:#000000;
+		}
+	</Style>
+</rMateGrid>

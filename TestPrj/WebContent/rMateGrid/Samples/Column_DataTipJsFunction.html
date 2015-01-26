@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javaScript" src="./JS/AC_OETags.js"></script>
+<script type="text/javaScript" src="./JS/rMateGrid.js"></script>
+<script type="text/javaScript" src="./JS/rMateGridLicense.js"></script>
+<style>
+body { margin: 0px; font-family: "굴림", "굴림체"; }
+</style>
+
+<!-- 사용자 정의 설정 시작 -->
+<script type="text/javascript">
+
+// ----------------------- rMateGrid flashVars 설정 시작 -----------------------
+
+// rMateGrid 레이아웃 URL 경로. 반드시 설정하십시오.
+var layoutURL = encodeURIComponent("./LayoutXml/LayoutColumnDataTipJsFunction.xml");
+var flashVars = "layoutURL="+layoutURL;
+
+// 데이타를 URL 경로를 통해 가져올 경우 설정하십시오.
+// 배열형태로 데이터를 삽입할 경우 주석처리나 삭제하십시오.
+// 배열형태와 같이 사용할 경우, 우선순위는 배열형태 데이터 삽입입니다.
+var dataURL = encodeURIComponent("./DataXml/DataOneDepthRevenues.xml");
+flashVars += "&dataURL="+dataURL;
+
+// 데이타가 JSON형일 경우 넣어줍니다. (설정을 안할경우 xml로 인식하여 오류가 발생합니다)
+//flashVars += "&dataType=json";
+
+// ----------------------- rMateGrid flashVars 설정 끝 -----------------------
+
+// dataTipJsFunction 기능을 이용하여 열의 헤더와 셀의 데이타팁을 바꿉니다.
+// dataTipJsFunction 함수의 파라메터는 다음과 같습니다.
+// function dataTipJsFunction(item:Object, value:Object, column:Column)
+// 		item : 해당 행의 data 객체 또는 Column(헤더의 데이타팁인 경우)
+// 		value : 해당 셀의 라벨
+// 		column : 해당 셀의 열을 정의한 Column 객체
+//
+// null을 반환하면 데이타팁은 나타나지 않으며, 문자열을 반환하면 데이타팁에 나타납니다.
+function dataTip(item, value, column) {
+	if (item["dataTipFunction"] != null)	// 헤더인 경우
+		return item.dataField+" 헤더";
+
+	if (value < 30000)
+		return "30000 미만";
+	return "30000 이상";
+}
+
+function dataTip2(item, value, column) {
+	if (item["dataTipFunction"] != null)	// 헤더인 경우
+		return "인천 실적";
+
+	if (value < 50000)
+		return "목표 미달";
+	return "목표 달성";
+}
+
+</script>
+<!-- 사용자 정의 설정 끝  -->
+</head>
+
+<body onLoad="rMateGridInit()">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+	<tr height="80">
+		<td width="7%"></td>
+		<td align="center" valign="middle">
+			<br>
+			<b>dataTipJsFunction 기능을 이용한 컬럼 데이타팁(툴팁) 조정</b>
+		</td>
+		<td width="7%"></td>
+	</tr>
+	<tr height="60">
+		<td></td>
+		<td align="center">원하는 컬럼의 셀에 자바스크립트 함수를 이용하여 데이타팁(툴팁)을 적용합니다.<br>
+		 Seoul, Pusan, Incheon의 열에 마우스를 갖다대면 데이타팁이 나타납니다.
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+					<td>
+						<script type="text/javascript">
+						<!--
+							rMateGridCreate("grid1", "../Component/rMateGridWeb", flashVars, "100%", "100%", "#FFFFFF");
+						// -->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center" valign="middle">
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(layoutURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewLayout.png" width="100" height="22" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(dataURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewData.png" width="100" height="22" border="0"/></a>
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+</body>
+</html>

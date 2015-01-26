@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gallery>
+	<photog>
+		<country>Korea</country>
+		<capital>서울</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;대한민국의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 1000만&lt;/font&gt;&lt;br&gt;면적 : 605.25 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;꽃 : 개나리 &lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>Korea</country>
+		<capital>부산</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;대한민국의 남부해안도시&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 360만&lt;/font&gt;&lt;br&gt;면적 : 765.64 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;꽃 : 동백꽃 &lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>U.S.A</country>
+		<capital>워싱턴</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;미국의 수도, 동부에 위치&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 58만&lt;/font&gt;&lt;br&gt;면적 : 159 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 국회의사당, 백악관 등&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>Japan</country>
+		<capital>도쿄</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;일본열도의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 1280만&lt;/font&gt;&lt;br&gt;면적 : 2187.05 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;꽃 : 왕벗나무&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>China</country>
+		<capital>베이징</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;중국의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 1690만&lt;/font&gt;&lt;br&gt;면적 : 16410.54 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;꽃 : 측백나무&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>England</country>
+		<capital>런던</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;영국의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 750만&lt;/font&gt;&lt;br&gt;면적 : 1578 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 템즈강,버킹엄궁전&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>France</country>
+		<capital>파리</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;프랑스의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 216만&lt;/font&gt;&lt;br&gt;면적 : 105 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 센강,개선문,몽마르트&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>Germany</country>
+		<capital>베를린</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;독일의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 337만&lt;/font&gt;&lt;br&gt;면적 : 891.75 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 슈프레강,브란덴부르크&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>Soviet Union</country>
+		<capital>모스코바</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;러시아의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 1047만&lt;/font&gt;&lt;br&gt;면적 : 1000 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 모스코바강, 크렘린&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>Brazil</country>
+		<capital>브라질리아</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;남미 브라질의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 260만&lt;/font&gt;&lt;br&gt;면적 : ? Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 계획도시,브라질의사당&lt;/font&gt;</desc>
+	</photog>
+	<photog>
+		<country>Australia</country>
+		<capital>캔버라</capital>
+		<desc>&lt;font size='16'&gt;&lt;b&gt;호주의 수도&lt;/b&gt;&lt;/font&gt; &lt;font size='12'&gt; &lt;font color='#0000FF'&gt;인구 : 35만&lt;/font&gt;&lt;br&gt;면적 : 814.2 Km2 &lt;/font&gt; &lt;br&gt; &lt;font size='14' color='#FF0000'&gt;명소 : 호주 국립 박물관&lt;/font&gt;</desc>
+	</photog>
+</gallery>

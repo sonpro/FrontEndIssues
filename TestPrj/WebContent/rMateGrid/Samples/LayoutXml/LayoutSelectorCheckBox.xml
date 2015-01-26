@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows">
+		<columns>
+			<!-- DataGridSelectorColumn 클래스를 사용하여 사용자의 행 선택용 컬럼을 만들 수 있습니다 -->
+			<DataGridSelectorColumn id="selector" width="40" textAlign="center" backgroundColor="0xEDEDF0"/>
+			<DataGridColumn dataField="From" width="80"/>
+			<DataGridColumn dataField="Subject" width="150"/>
+			<DataGridColumn dataField="ReceiveDate" headerText="Receive"/>
+			<DataGridColumn dataField="SendDate" headerText="Send"/>
+			<DataGridColumn dataField="CC"/>
+			<DataGridColumn dataField="Level"/>
+			<DataGridColumn dataField="Length" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right" formatter="{numfmt}"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

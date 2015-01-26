@@ -1,0 +1,179 @@
+﻿<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javaScript" src="./JS/AC_OETags.js"></script>
+<script type="text/javaScript" src="./JS/rMateGrid.js"></script>
+<script type="text/javaScript" src="./JS/rMateGridLicense.js"></script>
+<style>
+body { margin: 0px; font-family: "굴림", "굴림체"; }
+</style>
+
+<!-- 사용자 정의 설정 시작 -->
+<script type="text/javascript">
+
+// ----------------------- rMateGrid flashVars 설정 시작 -----------------------
+
+// rMateGrid 레이아웃 URL 경로. 반드시 설정하십시오.
+var layoutURL = encodeURIComponent("./LayoutXml/LayoutGroupColumnCreate.xml");
+var flashVars = "layoutURL="+layoutURL;
+
+// 데이타를 URL 경로를 통해 가져올 경우 설정하십시오.
+// 배열형태로 데이터를 삽입할 경우 주석처리나 삭제하십시오.
+// 배열형태와 같이 사용할 경우, 우선순위는 배열형태 데이터 삽입입니다.
+var dataURL = encodeURIComponent("./DataXml/DataOneDepthRevenues.xml");
+flashVars += "&dataURL="+dataURL;
+
+// ----------------------- rMateGrid flashVars 설정 끝 -----------------------
+
+// rMateGrid 관련 객체
+var gridApp;	// 플래시 기본 객체
+var gridRoot;	// 데이타와 그리드를 포함하는 객체
+var dataGrid;	// 그리드
+var collection;	// 그리드의 데이타 객체
+
+// rMateGrid가 로딩된 후 불려지는 함수
+var rMateGridOnLoad = function() {
+	gridApp = FABridge.gridBridge.root();
+	gridRoot = gridApp.getGridRoot();
+
+	var layoutCompleteHandler = function(event) {
+		dataGrid = gridApp.getDataGrid();
+	}
+
+	gridRoot.addEventListener("layoutComplete", layoutCompleteHandler);
+	gridRoot.addEventListener("importComplete", importCompleteHandler);
+}
+
+// rMateGrid가 로딩된 후 불려질 함수를 설정합니다.
+FABridge.addInitializationCallback("gridBridge", rMateGridOnLoad);
+
+function excelCSVImport() {
+	// 엑셀 CSV import
+	//  파라메터 설명
+	// 	0 : 사용자에게 질의
+	//	1 : 현재 레이아웃에 데이타만 import
+	//	2 : 헤더나 데이타에 따라 레이아웃을 재설정하고 데이타를 import
+	gridRoot.excelCSVImport(0);
+}
+
+// 사용자가 import를 완료하면 불려집니다.
+function importCompleteHandler() {
+	getChangedDataXML();
+}
+
+// import한 데이타를 가져와 특정필드를 조사합니다.
+function scanChangedData() {
+	collection = gridRoot.getCollection();
+	if (collection == null) {
+		alert("collection 객체를 찾을 수 없습니다");
+		return;
+	}
+
+	var changeXML = "";
+	var clen = collection.getLength();
+	var rowCount = 0;
+	var firstField = null;
+	for (var i = 0; i < clen; i++) {
+		var row = collection.getItemAt(i);
+		for (p in row) {
+			if (p != "mx_internal_uid") {
+					if (firstField == null)
+						firstField = p;
+					changeXML += "<" + p + ">" + row[firstField] + "</" + p + ">\n";
+					break;
+			}
+		}
+		rowCount++;
+	}
+	alert("changeXML:" + changeXML);
+}
+
+// 수정 작업 결과 가져오기 (그리드에서 작업된 입력,수정,삭제 내용을 가져옵니다)
+// 데이타는 배열 형태로
+// 	idx: 행번호
+//	job: 수행 작업 (I:입력, U:수정, D:삭제)
+//	data: 행의 자료
+// 를 가지고 있으며 삭제가 먼저 오도록 정렬되어 있습니다.
+function getChangedData() {
+	var changedData = gridRoot.getChangedData();
+	if (changedData.length == 0)
+		alert("변경된 자료가 없습니다");
+	else {
+		for (var i = 0; i < changedData.length && i < 5; i++)
+			alert("index:"+changedData[i].idx+"\n"+"job:"+changedData[i].job+"\n"+"data:"+changedData[i].data);
+	}
+}
+
+// 수정 작업 결과 XML로 가져오기 (그리드에서 작업된 입력,수정,삭제 내용을 XML로 가져옵니다)
+// 데이타는 XML 형태로
+// 	idx: 행번호
+//	job: 수행 작업 (I:입력, U:수정, D:삭제)
+//	data: 행의 자료
+// node를 가지고 있으며 삭제가 먼저 오도록 정렬되어 있습니다.
+function getChangedDataXML() {
+	var changedDataXML = gridRoot.getChangedDataXML();
+	if (changedDataXML == null)
+		alert("변경된 자료가 없습니다");
+	else
+		alert(changedDataXML);
+}
+
+</script>
+<!-- 사용자 정의 설정 끝  -->
+</head>
+
+<body onLoad="rMateGridInit()">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+	<tr height="80">
+		<td width="7%"></td>
+		<td align="center" valign="middle">
+			<br>
+			<b>Excel CSV import</b>
+		</td>
+		<td width="7%"></td>
+	</tr>
+	<tr height="50">
+		<td></td>
+		<td align="right">
+			<form id="inputForm" name="inputForm">
+				<input type="button" value="Excel CSV import" onClick="excelCSVImport()"/>
+				<input type="button" value="개별 레코드 스캔" onClick="scanChangedData()"/>
+				<input type="button" value="수정내역 보기" onClick="getChangedData()"/>
+				<input type="button" value="수정내역 XML로 보기" onClick="getChangedDataXML()"/>
+			</form>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+					<td>
+						<script type="text/javascript">
+						<!--
+							rMateGridCreate("grid1", "../Component/rMateGridWeb", flashVars, "100%", "100%", "#FFFFFF");
+						// -->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center" valign="middle">
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(layoutURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewLayout.png" width="100" height="22" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(dataURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewData.png" width="100" height="22" border="0"/></a></td>
+		<td></td>
+	</tr>
+</table>
+
+</body>
+</html>

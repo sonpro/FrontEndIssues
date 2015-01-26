@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://spoqa.github.io/2012/12/18/semantic-versioning.html -->
+<html class="wf-museosans-i5-active wf-museosans-i7-active wf-museosans-n5-active wf-museosans-n7-active wf-active wf-sourcesanspro-n4-active wf-sourcesanspro-n7-active wf-sourcesanspro-i4-active wf-sourcesanspro-i7-active wf-nanumbarungothic-n4-active"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Spoqa Tech Blog</title>
+
+
+<meta property="og:title" content="Semantic Versioning 소개">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://spoqa.github.io/2012/12/18/semantic-versioning.html">
+<meta property="og:site_name" content="Spoqa Tech Blog">
+<meta property="og:description" content="소프트웨어의 버전 명을 정하는 방법은 여러 가지가 있지만 명확한 기준 없이 지어질 때가 많습니다. 이번 글은 여러 경험을 종합하여 만들어진 Semantic Versioning 스펙을 소개합니다.">
+
+<meta property="og:image" content="http://spoqa.github.io/images/og-logo.png">
+<script id="facebook-jssdk" src="./Spoqa Tech Blog_files/all.js"></script><script src="./Spoqa Tech Blog_files/webfont.js"></script>
+<style type="text/css">.tk-museo-sans{font-family:"museo-sans",sans-serif;}</style><link rel="stylesheet" href="http://use.typekit.net/c/c1f92f/1w;museo-sans,2,PyD:R:i5,PyG:R:i7,PyC:R:n5,PyF:R:n7/d?3bb2a6e53c9684ffdc9a9bf1195b2a62fdf9449cb1c3f2f840a87bcb36e9026a53f70e51cc34cef49eb6e53f15961021259b961f6da09526846fbe993ced20f821117be9731b07c6a6a0152fce2b1a52a85ac1411acb78d997958cce231f6ee95cc18adf767ff2ff0795cb313bfa9de4b42d278efcbf1ab47e89b1536bfff2d1c3fb2b179aa4f58ec31ff419ce59fab4d8ed51be37f854805a1d00f7911a6f4438cddd15b8f8995c07448956fa"><script src="./Spoqa Tech Blog_files/ise6lwp.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+<link rel="stylesheet" href="http://spoqa.github.io/css/styles.css">
+<link rel="stylesheet" href="http://spoqa.github.io/css/syntax.css">
+<script src="./Spoqa Tech Blog_files/jquery.min.js"></script>
+<link href="http://spoqa.github.io/atom.xml" type="application/atom+xml" rel="alternate" title="Spoqa Tech Blog">
+<link rel="shortcut icon" href="http://spoqa.github.io/images/favicon.ico"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic"><link rel="stylesheet" href="http://spoqa.github.io/css/NanumBarunGothic.css">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body data-feedly-mini="yes">
+  <div class="wrapper">
+    <div class="header">
+      <div class="header-item">
+        <div class="spoqa-logo-wrap">
+          <a class="spoqa-logo" href="http://spoqa.github.io/"><img src="./Spoqa Tech Blog_files/logo.png"></a>
+          <a class="blog-title" href="http://spoqa.github.io/">Tech Blog</a>
+        </div>
+        <div class="nav">
+          <input type="checkbox" id="toggle">
+          <label for="toggle" class="toggle" onclick=""></label>
+          <ul class="menu">
+            <li><a class="
+               menu-about" href="http://spoqa.github.io/about.html">About</a></li>
+            <li><a class="
+              
+              selected
+               menu-blog" href="http://spoqa.github.io/index.html">Blog</a></li>
+            <li><a class="menu-github" href="https://github.com/spoqa">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      
+
+
+<div class="post-author-info">
+  
+    <img class="portrait" src="./Spoqa Tech Blog_files/shinvee@spoqa.com.png">
+    <h1 class="post-title">Semantic Versioning 소개</h1>
+    <span class="post-date">2012년 12월 18일</span>
+    <span class="sep">|</span>
+    <span class="author-name"><a href="mailto:shinvee@spoqa.com">JC Kim</a></span>
+  
+</div>
+
+
+
+  <div class="post"><h2 id="versioning">Versioning?</h2>
+
+<p>소프트웨어 개발 생태계는 수많은 사람들이 서로의 기술과 성과를 이어받아 오며 믿을 수 없는 수준의 협력 체제를 구축해오고 있습니다. 의존성은 이러한 협력체제에서 나오게 된 요소로, 다른 사람들이 만들어온 기능을 다시 만들 필요 없이 손쉽게 가져와서 재활용하는 방식으로 빠르게 소프트웨어를 만들 수 있게 되었습니다.</p>
+
+<p>하지만 이렇게 여러 사람에게 이용되는 패키지가 새롭게 업데이트될 때, 생각보다 다양한 문제에 직면하게 되었습니다. 기능의 사용법을 바꾸어버리거나 동작 방식의 변경 같은 변화들은 그에 의존하는 다른 소프트웨어를 의도대로 동작하지 못하게 하므로, 새로운 변화와 기존의 것을 구분할 필요가 생겼습니다. 버전이라는 개념은 이러한 패키지의 변화를 구분하기 위해 사용하기 시작하였습니다</p>
+
+<h2 id="semantic-versioning">Semantic Versioning?</h2>
+
+<p>버전이라는 코드 형태의 구분방식은 많은 핵심 문제를 해결해주었지만, 아직 여러 과제가 남아있었습니다. 버전 명의 작성 방식에 관한 기준이 패키지마다 제각각 다른 것이 문제였습니다. 0.x와 1.x의 차이, 1.0.0 혹은 1.000. 선행 배포와 정식 버전의 구분 방법 등 모든 소프트웨어, 패키지는 저마다의 기준을 가지고 있었으며, 이는 어느 정도의 적당한 공통점이 있었지만, 그 점이 미묘하게 모두 차이가 있어 버전에 따른 의미 해석을 어렵게 하였습니다.</p>
+
+<p><a href="http://semver.org/">Semantic Versioning</a>은 Github의 공동창업자인 <a href="http://tom.preston-werner.com/">Tom Preston-Werner</a>가 위의 문제를 해결하기 위해 기존의 현안을 모아 만든 제안입니다. 스펙 문서는 RFC 2119에 의해 규칙을 표기하여 의미적 엄격함을 높이고, 패키지 개발 생명주기에 발생할 수 있는 여러 상황을 포괄적으로 담아 일관성과 유연성을 균형 있게 갖추고 있습니다.</p>
+
+<h2 id="section">규칙</h2>
+
+<p>다음은 Semantic Versioning(v2.0.0-rc1)의 스펙을 한국어로 번역한 내용입니다. </p>
+
+<ol>
+  <li>
+    <p>Semantic Versioning을 쓰는 소프트웨어는 반드시 공개 API를 정의해야 한다. 이 API는 코드 자체에 정의되어 있거나 명시적으로 문서화 되어있어야 한다. 이 과정은 포괄적이며 정확해야 한다.</p>
+  </li>
+  <li>
+    <p>일반 버전 명은 반드시 X.Y.Z 형태를 보여야 하며 X, Y, Z는 음이 아닌 정수이다. X는 주요한 버전이며, Y는 작은 버전, Z는 패치버전이다. 각 요소는 1씩 차례로 증가해야 한다. 예: 1.9.0 -&gt; 1.10.0 -&gt; 1.11.0.</p>
+  </li>
+  <li>
+    <p>주요 버전 숫자가 올라갈 때, 작은 버전 숫자와 패치 버전 숫자는 0으로 재설정되어야 한다. 작은 버전 숫자가 올라갈 때, 패치 버전 숫자는 0으로 재설정되어야 한다. 예: 1.1.3 -&gt; 2.0.0, 2.1.7 -&gt; 2.2.0</p>
+  </li>
+  <li>
+    <p>버전 명이 주어진 패키지가 한번 공개되면, 해당 버전의 내용은 절대 수정되어선 안된다. 어떤 수정도 반드시 새로운 버전으로 공개되어야 한다.</p>
+  </li>
+  <li>
+    <p>주요 버전 0 (0.y.z)은 초기 개발을 위한 것이다. 언제든 변경될 수 있다. 공개 API는 안전하지 않다고 여긴다.</p>
+  </li>
+  <li>
+    <p>버전 1.0.0은 공개 API를 정의한다. 이 공개 이후의 버전 숫자가 바뀌는 방법은 공개 API와 변경 방법에 따라 결정된다.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>패치 버전 Z (x.y.Z</td>
+          <td>x &gt; 0)는 하위호환을 하지만 버그 수정이 있을 때 올라간다. 버그 수정은 내부적으로 잘못 처리되고 있는 것을 고치는 것을 의미한다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>작은 버전 Y (x.Y.z</td>
+          <td>x &gt; 0)는 새로운 기능이 추가되었지만 기존의 공개 API가 하위호환되고 있을 때 올라간다. 공개 API가 하나 이상 deprecated될 시에도 올라가야 한다. 부가적인 새 기능이나 개선이 내부 코드 (private code)에 있을 시에도 올릴 수 있다. 이는 패치 수준의 변화를 포함할 수 있으나, 작은 버전이 올라가면 패치 버전은 꼭 0이 되어야 한다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>주요 버전 X (X.y.z</td>
+          <td>X &gt; 0)는 하위호환되지 않는 변화가 추가될 때 반드시 올라가야 한다. 이는 패치 수준과 작은 수준의 변화를 포함할 수 있으나, 주요 버전이 올라가면 작은 버전과 패치 버전은 꼭 0이 되어야 한다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>선행 배포 버전은 대시(-)와 점으로 나누어진 식별자들의 묶음을 패치 버전 뒤에 표시한다. 식별자들은 ASCII 영숫자와 대시로만 구성되어야 한다. [0-9A-Za-z-]. 선행 배포 버전은 연관된 일반 버전보다 낮은 우선순위를 가진다.</p>
+  </li>
+  <li>
+    <p>개발 버전은 더하기(+)와 점으로 나누어진 식별자들의 묶음을 패치 버전 뒤에 표시한다. 식별자들은 ASCII 영숫자와 대시로만 구성되어야 한다. [0-9A-Za-z-]. 빌드 버전은 연관된 일반 버전보다 높은 우선순위를 가진다.</p>
+  </li>
+  <li>우선순위는 주요, 작은, 패치, 선행 배포, 빌드 식별자 내 숫자 순으로 계산되어야 한다. 주요, 작은, 패치 버전은 항상 숫자로 비교되어야 한다. 선행 배포와 빌드 버전의 우선순위는 반드시 각 점으로 나누어진 식별자들이 아래 규칙에 따라 비교되어야 한다: 1.  숫자로만 이루어진 식별자는 숫자로 비교 (2) 문자와 대시가 포함된 식별자는 ASCII 정렬 순서대로 비교. 숫자 식별자는 숫자가 아닌 식별자보다 낮은 우선순위를 가진다. 예: 1.0.0-alpha &lt; 1.0.0-alpha.1 &lt; 1.0.0-beta.2 &lt; 1.0.0-beta.11 &lt; 1.0.0-rc.1 &lt; 1.0.0-rc.1+build.1 &lt; 1.0.0 &lt; 1.0.0+0.3.7 &lt; 1.3.7+build &lt; 1.3.7+build.2.b8f12d7 &lt; 1.3.7+build.11.e0f985a.</li>
+</ol>
+
+<h2 id="section-1">응용</h2>
+
+<p>여러 오픈소스 프로젝트들이 이미 Semantic Versioning에 따라 버전 명을 표기하기 시작하였으며, 해당 규칙에 기반을 둔 버전 비교 라이브러리도 만들어지고 있습니다.</p>
+
+<ul>
+  <li>node.js: <a href="https://github.com/isaacs/node-semver">https://github.com/isaacs/node-semver</a></li>
+  <li>PHP: <a href="https://github.com/GordonSchmidt/SemVer">https://github.com/GordonSchmidt/SemVer</a></li>
+  <li>Python: <a href="https://github.com/k-bx/python-semver">https://github.com/k-bx/python-semver</a></li>
+  <li>Ruby: <a href="https://github.com/iantruslove/SemverStringer">https://github.com/iantruslove/SemverStringer</a></li>
+</ul>
+
+<p><a href="https://github.com/substack/seaport">seaport</a>는 node.js 에서 서비스 클러스터들이  Semantic Versioning에 따라 버전 의존성을 가지게 설계할 수 있어 보다 안정적인 버전 협상이 가능하도록 하고 있습니다.</p>
+
+<p><img src="https://a248.e.akamai.net/camo.github.com/39c1ea00e5dccec8ffc513066a5f9b89d8771f14/687474703a2f2f737562737461636b2e6e65742f696d616765732f736561706f72742e706e67" alt="seaport image"></p>
+
+<p>server.js:</p>
+
+<pre><code>var seaport = require('seaport');
+var ports = seaport.connect('localhost', 9090);
+var http = require('http');
+
+var server = http.createServer(function (req, res) {
+    res.end('beep boop\r\n');
+});
+
+server.listen(ports.register('web@1.2.3'));
+</code></pre>
+
+<p>client.js:</p>
+
+<pre><code>var seaport = require('seaport');
+var ports = seaport.connect(9090);
+var request = require('request');
+
+ports.get('web@1.2.x', function (ps) {
+    var u = 'http://' + ps[0].host + ':' + ps[0].port;
+    request(u).pipe(process.stdout);
+});
+</code></pre>
+
+<p>output:</p>
+
+<pre><code>$ node server.js &amp;
+[1] 6012
+$ node client.js
+beep boop
+</code></pre>
+
+<h2 id="section-2">마치며</h2>
+
+<p>비록 작은 통일일지는 모르나, 버전 명을 작성하는 훌륭한 기준이 있다는 것은 장기적으로 개발 생태계를 더욱 빠르고 긴밀하게 협력하도록 도와줄 것이라 생각됩니다. 의미적 해석이 가능한 코드는 의존성 문제를 더 똑똑한 수준으로 자동화할 수 있기 때문이죠. 버전 명을 지으실 때 좋은 안내서가 되었으면 좋겠습니다.</p>
+
+</div>
+
+
+<div class="post-footer">
+  <div class="back-btn"><a href="http://spoqa.github.io/">목록으로 돌아가기</a></div>
+  <div class="fb-like fb_iframe_widget" data-href="http://spoqa.github.io/2012/12/18/semantic-versioning.html" data-layout="button_count" data-width="100%" data-share="false" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=207542736008055&amp;href=http%3A%2F%2Fspoqa.github.io%2F2012%2F12%2F18%2Fsemantic-versioning.html&amp;layout=button_count&amp;locale=ko_KR&amp;sdk=joey&amp;share=false&amp;show_faces=false"><span style="vertical-align: bottom; width: 90px; height: 20px;"><iframe name="f33d7c6038" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Spoqa Tech Blog_files/like.html" style="border: none; visibility: visible; width: 90px; height: 20px;" class=""></iframe></span></div>
+  <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid" data-href="http://spoqa.github.io/2012/12/18/semantic-versioning.html" data-num-posts="5" data-width="100%" fb-xfbml-state="rendered"><span style="height: 110px; width: 700px;"><iframe id="f25efa157c" name="f78fb6cc4" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="./Spoqa Tech Blog_files/comments.html" style="border: none; overflow: hidden; height: 110px; width: 700px;"></iframe></span></div>
+  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Spoqa Tech Blog_files/7r8gQb8MIqE.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Spoqa Tech Blog_files/7r8gQb8MIqE(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f3e58b1128" frameborder="0" allowtransparency="true" scrolling="no" src="./Spoqa Tech Blog_files/ping.html" style="display: none;"></iframe></div></div></div>
+</div>
+<script>
+$(function() {
+  $('.fb-like, .fb-comments').attr('data-width', "100%");
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=207542736008055";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+});
+</script>
+
+
+    </div>
+    <div class="push">
+    </div>
+
+    <div class="footer">
+      <div id="info">
+        <span>© <a href="http://dodopoint.com/">Spoqa</a> Inc. All rights reserved.</span>
+        <span>Powered by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+      </div>
+    </div>
+  </div>
+<!-- Responsive layout polyfill for IE8 and lower -->
+<!--[if lte IE 8]>
+<script>
+var config = {
+    mobileResponsiveBreakpoint: 650
+};
+$(window).on('resize', function(){
+    if($(window).width() <= config.mobileResponsiveBreakpoint){
+        if(!$('body').hasClass('res-mobile')) $('body').addClass('res-mobile');
+    }
+    else {
+        $('body').removeClass('res-mobile');
+    }
+}).trigger('resize');
+</script>
+<![endif]-->
+<script>
+var WebFontConfig = {
+  google: {
+    families: ['Source Sans Pro:400,700,400italic,700italic']
+  },
+  custom: {
+    families: ['Nanum Barun Gothic:400,700'],
+    urls: ['/css/NanumBarunGothic.css']
+  }
+};
+
+WebFont.load(WebFontConfig);
+</script>
+
+
+
+<div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
