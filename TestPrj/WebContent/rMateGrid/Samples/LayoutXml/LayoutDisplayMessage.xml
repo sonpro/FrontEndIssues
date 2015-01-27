@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<NumberFormatter id="numfmt" useThousandsSeparator="true"/>
+	<DataGrid id="dg1" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle" selectionMode="multipleRows">
+		<columns>
+			<DataGridColumn dataField="From" width="80"/>
+			<DataGridColumn dataField="Subject" width="120"/>
+			<DataGridColumn dataField="ReceiveDate" headerText="Receive"/>
+			<DataGridColumn dataField="SendDate" headerText="Send"/>
+			<DataGridColumn dataField="CC"/>
+			<DataGridColumn dataField="Level"/>
+			<DataGridColumn dataField="Length" textAlign="right" formatter="{numfmt}"/>
+			<DataGridColumn dataField="AttachCount" textAlign="right" formatter="{numfmt}"/>
+		</columns>
+	</DataGrid>
+<!--
+== Box 스타일 ==
+backgroundAlpha 배경의 투명도 (0 - 1사이의 실수, 0:투명, 1:불투명)
+backgroundColor 배경색 지정
+borderColor 테두리색 지정
+borderStyle 테두리모양 지정 (none,solid,inset,outset중 택일, 기본 none)
+borderThickness 테두리 두께 지정 (borderStyle이 'solid'일때만 작동, 기본 1)
+horizontalAlign 셀 세로 정렬 지정 (left,center,right중 택일, 기본 left)
+paddingBottom 아랫쪽 padding 크기 지정(기본 2)
+paddingLeft 왼쪽 padding 크기 지정(기본 2)
+paddingRight 오른쪽 padding 크기 지정(기본 0)
+paddingTop 윗쪽 padding 크기 지정(기본 2)
+verticalAlign 셀 세로 정렬 지정 (top,middle,bottom중 택일, 기본 top)
+
+== Box 속성 ==
+height 높이 지정(%도 가능)(단위:pixel 또는 백분율)
+visible 보이기/숨기기 (true,false중 택일, 기본 true)
+width 폭 지정(%도 가능)(단위:pixel 또는 백분율)
+-->
+	<Box id="messageBox" width="100%" height="100%" backgroundAlpha="0.3" backgroundColor="#CCCCCC" verticalAlign="middle" horizontalAlign="center" visible="false">
+		<Box backgroundAlpha="1" backgroundColor="#FFFFFF" borderColor="0x000000" borderStyle="solid" paddingTop="5" paddingBottom="5" paddingRight="5" paddingLeft="5">
+<!--
+== Label 스타일 ==
+color 폰트색 지정
+fontWeight 폰트 bold 지정 (bold,normal중 택일, 기본 normal)
+fontStyle 폰트 italic 지정 (italic,normal중 택일, 기본 normal)
+fontFamily 폰트 지정
+fontSize 폰트크기 지정(단위:pixel)
+textAlign 셀들의 기본 수평정렬 지정 (left,right,center중 택일, 기본 left)
+textDecoration 폰트 underline 지정 (underline,none중 택일, 기본 none)
+paddingBottom 아랫쪽 padding 크기 지정(기본 2)
+paddingLeft 왼쪽 padding 크기 지정(기본 2)
+paddingRight 오른쪽 padding 크기 지정(기본 0)
+paddingTop 윗쪽 padding 크기 지정(기본 2)
+
+== Label 속성 ==
+htmlText 라벨의 html
+text 라벨의 텍스트
+truncateToFit 말 줄임표 사용여부 (true,false중 택일, 기본 false)
+visible 보이기/숨기기 (true,false중 택일, 기본 true)
+width 폭 지정(%도 가능)(단위:pixel 또는 백분율)
+-->
+			<Label id="messageLabel" text="자료가 없습니다" fontSize="18" fontWeight="bold" color="#FF0000"/>
+		</Box>
+	</Box>
+</rMateGrid>

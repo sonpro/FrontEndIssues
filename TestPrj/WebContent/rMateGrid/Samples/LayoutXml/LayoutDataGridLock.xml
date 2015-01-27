@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+<!--
+lockedRowCount 틀고정 행 설정 (0이면 해제)
+lockedColumnCount 틀고정 열 설정 (0이면 해제)
+-->
+	<DataGrid id="dg1" lockedRowCount="3" lockedColumnCount="1" horizontalScrollPolicy="auto">
+		<columns>
+			<DataGridColumn dataField="Region"/>
+			<DataGridColumn dataField="Territory" width="150"/>
+			<DataGridColumn dataField="Territory_Rep" headerText="Territory Rep" width="150"/>
+			<DataGridColumn dataField="Actual"/>
+			<DataGridColumn dataField="Estimate"/>
+			<DataGridColumn dataField="Real"/>
+			<DataGridColumn dataField="Price"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>

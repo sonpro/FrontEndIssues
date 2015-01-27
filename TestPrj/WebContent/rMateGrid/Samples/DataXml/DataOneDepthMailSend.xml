@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MailsSends>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Amit</From>
+        <Subject>GMC-1 Release1</Subject>
+        <ReceiveDate>2006/12/07</ReceiveDate>
+        <SendDate>2006/12/06</SendDate>
+        <CC>Jim</CC>
+        <Length>75126</Length>
+        <Level>1</Level>
+        <AttachCount>1</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Amit</From>
+        <Subject>GMC-1 Release2</Subject>
+        <ReceiveDate>2006/12/07</ReceiveDate>
+        <SendDate>2006/12/06</SendDate>
+        <CC>Jim</CC>
+        <Length>95822</Length>
+        <Level>1</Level>
+        <AttachCount>2</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Amit</From>
+        <Subject>GMC-1 Release3</Subject>
+        <ReceiveDate>2006/12/11</ReceiveDate>
+        <SendDate>2006/12/11</SendDate>
+        <CC>Jim</CC>
+        <Length>1862456</Length>
+        <Level>3</Level>
+        <AttachCount>0</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Barb</From>
+        <Subject>GMC-1 Release3</Subject>
+        <ReceiveDate>2006/12/08</ReceiveDate>
+        <SendDate>2006/12/08</SendDate>
+        <CC>Anant</CC>
+        <Length>65488</Length>
+        <Level>8</Level>
+        <AttachCount>31</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Barb</From>
+        <Subject>GMC-1 Release4</Subject>
+        <ReceiveDate>2006/12/06</ReceiveDate>
+        <SendDate>2006/12/06</SendDate>
+        <CC>Anant</CC>
+        <Length>4851568</Length>
+        <Level>8</Level>
+        <AttachCount>1</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>true</Selected>
+        <From>Harry</From>
+        <Subject>GMC-1 Release2</Subject>
+        <ReceiveDate>2006/11/28</ReceiveDate>
+        <SendDate>2006/11/28</SendDate>
+        <CC>Ram</CC>
+        <Length>13548</Length>
+        <Level>1</Level>
+        <AttachCount>0</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Harry</From>
+        <Subject>GMC-1 Release3</Subject>
+        <ReceiveDate>2006/12/08</ReceiveDate>
+        <SendDate>2006/12/08</SendDate>
+        <CC>Ram</CC>
+        <Length>1235</Length>
+        <Level>1</Level>
+        <AttachCount>12</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>John</From>
+        <Subject>GMC-1 Release2</Subject>
+        <ReceiveDate>2006/12/07</ReceiveDate>
+        <SendDate>2006/12/07</SendDate>
+        <CC>Jim</CC>
+        <Length>84621877</Length>
+        <Level>5</Level>
+        <AttachCount>20</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>John</From>
+        <Subject>GMC-1 Release3</Subject>
+        <ReceiveDate>2006/12/07</ReceiveDate>
+        <SendDate>2006/12/06</SendDate>
+        <CC>Jim</CC>
+        <Length>51846</Length>
+        <Level>5</Level>
+        <AttachCount>3</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Phill</From>
+        <Subject>GMC-1 Release1</Subject>
+        <ReceiveDate>2006/12/08</ReceiveDate>
+        <SendDate>2006/12/08</SendDate>
+        <CC>Jim</CC>
+        <Length>31680</Length>
+        <Level>3</Level>
+        <AttachCount>5</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Phill</From>
+        <Subject>GMC-1 Release1</Subject>
+        <ReceiveDate>2006/12/08</ReceiveDate>
+        <SendDate>2006/12/08</SendDate>
+        <CC>Jim</CC>
+        <Length>1813</Length>
+        <Level>2</Level>
+        <AttachCount>0</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Phill</From>
+        <Subject>GMC-1 Release3</Subject>
+        <ReceiveDate>2006/12/08</ReceiveDate>
+        <SendDate>2006/12/08</SendDate>
+        <CC>Jim</CC>
+        <Length>13548</Length>
+        <Level>2</Level>
+        <AttachCount>1</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>Phill</From>
+        <Subject>GMC-1 Release4</Subject>
+        <ReceiveDate>2006/12/08</ReceiveDate>
+        <SendDate>2006/12/08</SendDate>
+        <CC>Jim</CC>
+        <Length>16588</Length>
+        <Level>1</Level>
+        <AttachCount>0</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>김철수</From>
+        <Subject>GMC-1 Release4</Subject>
+        <ReceiveDate>2006/11/21</ReceiveDate>
+        <SendDate>2006/11/21</SendDate>
+        <CC>박순이</CC>
+        <Length>5158</Length>
+        <Level>9</Level>
+        <AttachCount>0</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>김철수</From>
+        <Subject>GMC-1 Release5</Subject>
+        <ReceiveDate>2006/11/19</ReceiveDate>
+        <SendDate>2006/11/19</SendDate>
+        <CC>이미자</CC>
+        <Length>216815</Length>
+        <Level>8</Level>
+        <AttachCount>2</AttachCount>
+    </Mail>
+    <Mail>
+        <Selected>false</Selected>
+        <From>김철수</From>
+        <Subject>GMC-1 Release6</Subject>
+        <ReceiveDate>2006/11/22</ReceiveDate>
+        <SendDate>2006/11/20</SendDate>
+        <CC>박만수</CC>
+        <Length>312566</Length>
+        <Level>7</Level>
+        <AttachCount>3</AttachCount>
+    </Mail>
+</MailsSends>

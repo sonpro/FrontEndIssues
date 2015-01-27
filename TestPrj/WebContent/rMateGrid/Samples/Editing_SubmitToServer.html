@@ -1,0 +1,234 @@
+﻿<html>
+<head>
+<title>rMate Flash Grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javaScript" src="./JS/AC_OETags.js"></script>
+<script type="text/javaScript" src="./JS/rMateGrid.js"></script>
+<script type="text/javaScript" src="./JS/rMateGridLicense.js"></script>
+<style>
+body { margin: 0px; font-family: "굴림", "굴림체"; }
+</style>
+
+<!-- 사용자 정의 설정 시작 -->
+<script type="text/javascript">
+
+// ----------------------- rMateGrid flashVars 설정 시작 -----------------------
+
+// rMateGrid 레이아웃 URL 경로. 반드시 설정하십시오.
+var layoutURL = encodeURIComponent("./LayoutXml/LayoutEditingEditor.xml");
+var flashVars = "layoutURL="+layoutURL;
+
+// 데이타를 URL 경로를 통해 가져올 경우 설정하십시오.
+// 배열형태로 데이터를 삽입할 경우 주석처리나 삭제하십시오.
+// 배열형태와 같이 사용할 경우, 우선순위는 배열형태 데이터 삽입입니다.
+var dataURL = encodeURIComponent("./DataXml/DataOneDepthMailSend.txt");
+flashVars += "&dataURL="+dataURL;
+
+// 데이타가 JSON형일 경우 넣어줍니다. (설정을 안할경우 xml로 인식하여 오류가 발생합니다)
+flashVars += "&dataType=json";
+
+// ----------------------- rMateGrid flashVars 설정 끝 -----------------------
+
+// rMateGrid 관련 객체
+var gridApp;	// 플래시 기본 객체
+var gridRoot;	// 데이타와 그리드를 포함하는 객체
+var dataGrid;	// 그리드
+
+// rMateGrid가 로딩된 후 불려지는 함수
+var rMateGridOnLoad = function() {
+	gridApp = FABridge.gridBridge.root();
+	gridRoot = gridApp.getGridRoot();
+
+	var menuItemSelectedHandler = function(event) {
+		contextMenuHandler(event.getMenuItemCaption());
+	}
+	var layoutCompleteHandler = function(event) {
+		dataGrid = gridApp.getDataGrid();
+		dataGrid.addEventListener("gridMenuItemSelect", menuItemSelectedHandler);
+	}
+
+	gridRoot.addEventListener("layoutComplete", layoutCompleteHandler);
+}
+
+// rMateGrid가 로딩된 후 불려질 함수를 설정합니다.
+FABridge.addInitializationCallback("gridBridge", rMateGridOnLoad);
+
+function contextMenuHandler(caption) {
+	if (caption == "Insert Row") {
+		var item = {"Selected": false,"From": "James","Subject": "GMC-1 Release1","ReceiveDate": "2007/05/23","SendDate": "2007/05/22","CC": "Marry","Length": 52433,"Level": 2,"AttachCount": 2};
+		gridRoot.addItemAt(item, dataGrid.getSelectedIndex());
+	} else if (caption == "Delete Row")
+		gridRoot.removeItemAt(dataGrid.getSelectedIndex());
+}
+
+// 수정 작업 결과 가져오기 (그리드에서 작업된 입력,수정,삭제 내용을 가져옵니다)
+// 데이타는 배열 형태로
+// 	idx: 행번호
+//	job: 수행 작업 (I:입력, U:수정, D:삭제)
+//	data: 행의 자료
+// 를 가지고 있으며 삭제가 먼저 오도록 정렬되어 있습니다.
+function getChangedData() {
+	// 에디팅 상태면 에디팅을 닫히도록 한다.
+	dataGrid.setEnabled(false);	dataGrid.setEnabled(true);
+
+	var changedData = gridRoot.getChangedData();
+	if (changedData.length == 0)
+		alert("변경된 자료가 없습니다");
+	else {
+		for (var i = 0; i < changedData.length; i++)
+			alert("index:"+changedData[i].idx+"\n"+"job:"+changedData[i].job+"\n"+"data:"+changedData[i].data);
+	}
+}
+
+// 수정 작업 결과 XML로 가져오기 (그리드에서 작업된 입력,수정,삭제 내용을 XML로 가져옵니다)
+// 데이타는 XML 형태로
+// 	idx: 행번호
+//	job: 수행 작업 (I:입력, U:수정, D:삭제)
+//	data: 행의 자료
+// node를 가지고 있으며 삭제가 먼저 오도록 정렬되어 있습니다.
+function getChangedDataXML() {
+	// 에디팅 상태면 에디팅을 닫히도록 한다.
+	dataGrid.setEnabled(false);	dataGrid.setEnabled(true);
+
+	var changedDataXML = gridRoot.getChangedDataXML();
+	if (changedDataXML == null)
+		alert("변경된 자료가 없습니다");
+	else
+		alert(changedDataXML);
+}
+
+// labelJsFunctin 기능을 이용하여 Selected 컬럼을 true/false대신 Yes,No로 바꿉니다.
+function convertYesNo(item, value, column) {
+	if (column.dataField == "Selected") {
+		// 데이타가 xml인 경우에는 문자열 비교를 하셔야 합니다.
+		if (value == true)
+			return "Yes";
+	 	else
+			return "No";
+	}
+	return "";
+}
+
+// 수정 작업 결과 XML을 가져와 Ajax로 서버로 보내기
+// 서버의 설정에 따라 serverUrl를 변경하시기 바랍니다.
+var xmlHttp;
+function submitToServer() {
+	// 에디팅 상태면 에디팅을 닫히도록 한다.
+	dataGrid.setEnabled(false);	dataGrid.setEnabled(true);
+
+	var serverUrl = "/bbs/gridUpdateData.jsp";
+	var changedDataXML = gridRoot.getChangedDataXML();
+	if (changedDataXML == null) {
+		alert("변경된 자료가 없습니다");
+		return;
+	}
+
+	try {
+		xmlHttp = new XMLHttpRequest();
+	} catch(trymicrosoft) {
+		try {
+			xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch(othermicrosoft) {
+			try {
+				xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch(failed) {
+				xmlHttp = false;
+			}
+		}
+	}
+
+	if (!xmlHttp) {
+		alert("Error initializing XMLHttpRequest!");
+		return;
+	}
+
+//alert(changedDataXML);
+	xmlHttp.onreadystatechange = handleStateChange;
+	xmlHttp.open("POST", serverUrl, true);
+	xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+	xmlHttp.send("changedDataXML="+encodeURIComponent("<changedData>"+changedDataXML+"</changedData>"));
+}
+
+function handleStateChange() {
+	if (xmlHttp.readyState == 4) {
+		if (xmlHttp.status == 200) {
+			alert(xmlHttp.responseText);
+		} else {
+			// 로컬에서 수행시 접속할 서버가 없어 3이 반환됩니다. 서버에서 실행하며 serverUrl 의 url이 실제 수행가능해야 정상적으로 작동합니다.
+			alert("서버 오류 status:"+xmlHttp.status);
+		}
+	}
+}
+
+// 그리드내의 수정된 내역을 reset해 줍니다.
+function resetChangedData() {
+	gridRoot.resetChangedData();
+}
+
+</script>
+<!-- 사용자 정의 설정 끝  -->
+</head>
+
+<body onLoad="rMateGridInit()">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+	<tr height="80">
+		<td width="7%"></td>
+		<td align="center" valign="middle">
+			<br>
+			<b>그리드 편집후 서버에 저장</b>
+		</td>
+		<td width="7%"></td>
+	</tr>
+	<tr height="80">
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="center">그리드의 편집내용을 getChangedDataXML()를 통해 가져온후 서버로 submit합니다.<br> 서버에서는 편집내용을 XML로 받아 파싱후 자료를 업데이트할 수 있습니다.</td>
+				</tr>
+				<tr><td height="10"></td></tr>
+				<tr>
+					<td align="right">
+						<input type="button" value="수정내역 보기" onClick="getChangedData()"/>
+						<input type="button" value="수정내역 XML로 보기" onClick="getChangedDataXML()"/>
+						<input type="button" value="수정내역 서버로 저장" onClick="submitToServer()"/>
+						<input type="button" value="수정내역 지우기" onClick="resetChangedData()"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+				<tr>
+					<td align="center">
+						<script type="text/javascript">
+						<!--
+							rMateGridCreate("grid1", "../Component/rMateGridWeb", flashVars, "100%", "100%", "#FFFFFF");
+						// -->
+						</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+	</tr>
+	<tr height="100">
+		<td></td>
+		<td align="center" valign="middle">
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(layoutURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewLayout.png" width="100" height="22" border="0"/></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="javascript:window.open(decodeURIComponent(dataURL), '_blank', 'width=1024 height=768 scrollbars=yes')">
+			<img src="./Images/viewData.png" width="100" height="22" border="0"/></a>
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+</body>
+</html>

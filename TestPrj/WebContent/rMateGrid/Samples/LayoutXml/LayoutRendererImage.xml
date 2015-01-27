@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rMateGrid>
+	<DataGrid id="dg1" rowHeight="60" horizontalScrollPolicy="auto" horizontalGridLines="true" horizontalGridLineColor="0xCCCCCC" verticalAlign="middle">
+		<columns>
+			<DataGridColumn dataField="country" width="120" headerText="국가"/>
+			<DataGridColumn dataField="gold" headerText="금메달" textAlign="right"/>
+			<DataGridColumn dataField="silver" headerText="은메달" textAlign="right"/>
+			<DataGridColumn dataField="bronze" headerText="동메달" textAlign="right"/>
+<!--
+itemRenderer 를 "ImageItem"로 설정하여 ImageItem을 사용, data로 이미지 url을 전달합니다. (자신의 서버외의 이미지를 로딩시 보안 에러가 발생할 수 있습니다)
+이미지의 크기는 해당 행의 크기에 좌우되오니 rowHeight를 사용하시면 일정한 크기의 이미지를 보여줄 수 있습니다.
+-->
+			<DataGridColumn id="imageCol" dataField="flag" headerText="국기" textAlign="center" itemRenderer="ImageItem"/>
+		</columns>
+	</DataGrid>
+</rMateGrid>
